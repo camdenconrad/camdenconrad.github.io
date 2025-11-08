@@ -712,6 +712,111 @@ html {
     color: var(--bg-dark);
 }
 
+/* Gallery Carousel */
+.modal-gallery {
+    margin: 2rem 0;
+}
+
+.modal-gallery h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg-darker);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.gallery-images {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background: var(--bg-darker);
+}
+
+.gallery-image.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.gallery-nav:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-prev {
+    left: 1rem;
+}
+
+.gallery-next {
+    right: 1rem;
+}
+
+.gallery-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem 0;
+}
+
+.gallery-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    padding: 0;
+}
+
+.gallery-indicator:hover {
+    background: rgba(0, 255, 136, 0.3);
+    transform: scale(1.2);
+}
+
+.gallery-indicator.active {
+    background: var(--primary-color);
+    transform: scale(1.3);
+}
+
 /* About Section */
 .about-container {
     text-align: center;
@@ -865,6 +970,24 @@ html {
     .contact-link {
         width: 100%;
         max-width: 300px;
+    }
+
+    .gallery-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .gallery-prev {
+        left: 0.5rem;
+    }
+
+    .gallery-next {
+        right: 0.5rem;
+    }
+
+    .gallery-indicator {
+        width: 10px;
+        height: 10px;
     }
 }
 

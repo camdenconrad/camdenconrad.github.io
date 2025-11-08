@@ -3,80 +3,95 @@ const projectsData = [
     {
         id: 1,
         title: "Ajaara",
-        shortDescription: "Narrative action-adventure game with custom systems and original soundtrack",
-        fullDescription: "Ajaara is an ongoing narrative action-adventure game built in Unreal Engine 5. As the sole developer, I'm building gameplay systems for combat mechanics, AI behaviors, and player decision-making from the ground up. The project showcases my ability to handle multiple disciplines including programming, 3D modeling, rigging, animation, and audio production.",
+        shortDescription: "Narrative action-adventure blending Indian and Native American mythology with emergent AI",
+        fullDescription: "Ajaara is my ongoing capstone project — a narrative action-adventure game that blends Indian and Native American mythological influences into a reverse Bhagavad Gita–inspired story about moral defiance and divine wrath. As the sole developer, I'm building this in Unreal Engine 5 from the ground up, with a focus on making combat and AI systems feel reactive and alive through emergent behavior design. The game is both a technical showcase and a cultural synthesis, exploring themes of duty, rebellion, and consequence through interactive storytelling. Beyond programming, I handle all 3D modeling, rigging, animation, and audio production, creating an original soundtrack in Ableton Live that supports the narrative's emotional weight.",
         image: "https://via.placeholder.com/400x250/0a0a0f/00ff88?text=Ajaara",
         category: "Unreal",
         tags: ["Unreal Engine 5", "C++", "AI Systems", "3D Modeling", "Audio Design"],
-        youtubeId: "", // Add when available
+        youtubeId: "2gdyq9h1tRw",
         githubUrl: "https://github.com/camdenconrad/ajaara",
+        gallery: [
+            "https://via.placeholder.com/1920x1080/0a0a0f/00ff88?text=Ajaara+Screenshot+1",
+            "https://via.placeholder.com/1920x1080/0a0a0f/00ff88?text=Ajaara+Screenshot+2",
+            "https://via.placeholder.com/1920x1080/0a0a0f/00ff88?text=Ajaara+Screenshot+3",
+            "https://via.placeholder.com/1920x1080/0a0a0f/00ff88?text=Ajaara+Screenshot+4",
+            "https://via.placeholder.com/1920x1080/0a0a0f/00ff88?text=Ajaara+Screenshot+5"
+        ],
         features: [
-            "Custom combat mechanics with responsive controls",
-            "AI behavior systems for dynamic enemy interactions",
-            "Player decision-making framework affecting narrative flow",
-            "Optimized 3D models, rigging, and animation pipeline",
-            "Original soundtrack and audio effects in Ableton Live",
-            "Performance-focused development for real-time gameplay"
+            "Reverse Bhagavad Gita narrative: moral defiance against divine authority",
+            "Cultural synthesis of Indian and Native American mythological elements",
+            "Emergent AI behavior systems designed to feel reactive and alive",
+            "Custom combat mechanics emphasizing player agency and consequence",
+            "Player decision-making framework with branching moral implications",
+            "Optimized 3D modeling pipeline focused on performance and style",
+            "Original soundtrack and soundscape crafted in Ableton Live",
+            "Solo-developed: programming, art, animation, audio, and design"
         ],
         technologies: "Unreal Engine 5, C++, Blueprints, Autodesk Maya, Ableton Live"
     },
     {
         id: 2,
         title: "Rule-Based Imaging (RBI)",
-        shortDescription: "Generative AI system using Wave Function Collapse and structural analysis",
-        fullDescription: "RBI is a cutting-edge generative AI system that synthesizes images through probabilistic application of learned spatial and chromatic rules. The system analyzes grayscale properties (luminance, gradients, entropy) to preserve logical image structure, then applies Wave Function Collapse with 8-directional weighted adjacency constraints for coherent generation. This project demonstrates advanced understanding of procedural generation algorithms and AI-driven content creation.",
+        shortDescription: "Research into how AI learns aesthetic logic through spatial reasoning",
+        fullDescription: "RBI is a generative AI system exploring how artificial systems can learn aesthetic logic through spatial reasoning — bridging art, math, and cognition. Rather than treating image generation as pure pattern matching, RBI analyzes the structural logic of images (luminance, gradients, entropy) to understand why compositions work, then applies that understanding through Wave Function Collapse with 8-directional weighted adjacency constraints. The system doesn't just copy — it reasons about spatial relationships and chromatic harmony. This research demonstrates that procedural generation can be more than technical novelty; it can be a creative system with intent and structure, capable of learning the 'rules' that make visual art coherent.",
         image: "https://via.placeholder.com/400x250/0a0a0f/0099ff?text=Rule-Based+Imaging",
         category: "AI",
         tags: ["C#", "AI/ML", "Wave Function Collapse", "Procedural Generation", "Avalonia UI"],
         youtubeId: "",
         githubUrl: "https://github.com/camdenconrad/rule-based-imaging",
         features: [
+            "Explores how AI learns aesthetic principles through spatial analysis",
+            "Bridges art, mathematics, and cognitive reasoning in generative systems",
             "Structural rule graph analyzing luminance, gradients, and entropy",
             "Wave Function Collapse with 8-directional weighted adjacency",
-            "Structure-aware color placement maintaining adjacency patterns",
-            "Probabilistic generation based on learned spatial rules",
-            "Custom UI built with Avalonia for interactive parameter tuning",
-            "Coherent image synthesis from training data analysis"
+            "Structure-aware color placement maintaining logical coherence",
+            "Learns 'why' compositions work, not just 'what' they look like",
+            "Custom UI built with Avalonia for real-time experimentation",
+            "Research-focused: treats generation as reasoning, not imitation"
         ],
         technologies: "C#, Avalonia UI, Custom Algorithms, Image Processing, WFC Algorithm"
     },
     {
         id: 3,
         title: "ARIA Neural Network",
-        shortDescription: "Experimental self-reflective AI with dynamic neural architecture",
-        fullDescription: "ARIA is a research project exploring self-restructuring neural network architectures capable of introspection and dynamic rewiring. This experimental system investigates autonomous control patterns for memory structures, identity modules, and optimization pathways. The project pushes boundaries in adaptive AI systems and emergent self-organization patterns, representing cutting-edge exploration in neural network design.",
+        shortDescription: "Exploring self-reflective architectures and emergent intelligence",
+        fullDescription: "ARIA is part of my ongoing exploration into self-reflective and self-organizing neural architectures — systems that don't just process information, but examine and restructure themselves. This research stems from a broader fascination with adaptive systems and emergent intelligence: the question of whether AI can develop genuine autonomy through introspection rather than external training. ARIA experiments with dynamic rewiring, where the network analyzes its own performance and reorganizes its structure accordingly. It investigates autonomous control patterns for memory, identity modules, and optimization pathways — treating the architecture itself as a living system. This isn't just technical experimentation; it's an exploration of what happens when we give neural networks the tools to reflect on their own existence and adapt from within.",
         image: "https://via.placeholder.com/400x250/0a0a0f/ff0099?text=ARIA+Neural+Network",
         category: "AI",
         tags: ["C#", "Neural Networks", "LLM Integration", "Research", "Adaptive Systems"],
         youtubeId: "",
         githubUrl: "https://github.com/camdenconrad/aria-neural-network",
         features: [
-            "Self-restructuring neural architecture with introspection capabilities",
-            "Dynamic rewiring based on performance metrics",
+            "Self-organizing architectures with introspective capabilities",
+            "Explores autonomy through internal reflection, not just training",
+            "Dynamic rewiring based on self-analyzed performance metrics",
             "Autonomous control patterns for memory and identity structures",
-            "LLM integration for enhanced reasoning capabilities",
-            "Experimental emergent self-organization patterns",
-            "Custom training pipeline for adaptive optimization"
+            "Part of broader research into emergent intelligence systems",
+            "LLM integration for enhanced reasoning and self-reflection",
+            "Experimental approach: architecture as a living, adaptive system",
+            "Investigates what happens when AI can examine its own existence"
         ],
         technologies: "C#, Custom Neural Architecture, LLM APIs, Advanced Algorithms"
     },
     {
         id: 4,
         title: "Full-Stack Multiplayer Platform",
-        shortDescription: "Real-time multiplayer web platform with cross-device synchronization",
-        fullDescription: "A complete full-stack multiplayer platform enabling real-time gameplay across desktop and mobile devices. Built from the ground up with custom client-server architecture using WebSocket communication for synchronized game state. This project demonstrates proficiency in networking, database operations, server hosting, and responsive front-end development with focus on performance and scalability.",
+        shortDescription: "Exploring network reliability and seamless cross-device connectivity",
+        fullDescription: "This full-stack multiplayer platform was born from a fascination with network reliability and scalable architecture — specifically, how to design systems that connect players seamlessly across devices while maintaining consistent state. Built entirely from scratch, it's a study in distributed systems design: custom client-server architecture with WebSocket communication, desktop-hosted server infrastructure, and responsive front-end that adapts to both desktop and mobile contexts. The project wasn't just about making multiplayer work; it was about understanding how to build resilient, fault-tolerant systems that gracefully handle latency, disconnections, and synchronization challenges. This is systems design at its core — turning a technical challenge into an exploration of what makes networked experiences feel smooth and reliable.",
         image: "https://via.placeholder.com/400x250/0a0a0f/667eea?text=Multiplayer+Platform",
         category: "Web",
         tags: ["C#", "Web Technologies", "Multiplayer", "Networking", "Full-Stack"],
         youtubeId: "",
         githubUrl: "https://github.com/camdenconrad/multiplayer-platform",
         features: [
-            "Real-time WebSocket communication for game state sync",
-            "Custom client-server architecture built from scratch",
-            "Desktop-hosted server with database operations",
-            "Responsive front-end supporting desktop and mobile",
-            "Cross-device play with seamless synchronization",
-            "Scalable networking infrastructure for concurrent players"
+            "Explores network reliability and fault-tolerant system design",
+            "Seamless cross-device connectivity: desktop and mobile unified",
+            "Real-time WebSocket communication with graceful degradation",
+            "Custom client-server architecture built from first principles",
+            "Desktop-hosted server with scalable database operations",
+            "Handles latency, disconnections, and state synchronization elegantly",
+            "Study in distributed systems and resilient architecture",
+            "Transforms technical challenge into systems-design story"
         ],
         technologies: "C#, WebSockets, Web Technologies, Database Management, Server Architecture"
     },
@@ -102,29 +117,39 @@ const projectsData = [
     },
     {
         id: 6,
-        title: "Game Design & Development Projects",
-        shortDescription: "Advanced systems from UNC Charlotte coursework",
-        fullDescription: "Game projects from UNC Charlotte's Intro to Game Design and Development course (Fall 2023). These projects focused on advanced technical implementations including sophisticated memory management techniques for character customization systems and iterative playtesting workflows. The projects demonstrate fundamental game development skills and systematic approach to game design iteration.",
-        image: "https://via.placeholder.com/400x250/0a0a0f/ff6600?text=UNC+Game+Projects",
+        title: "Titan — UNC Charlotte Game Project",
+        shortDescription: "2D action game with advanced character customization and memory management",
+        fullDescription: "Titan is a 2D action game developed for UNC Charlotte's Intro to Game Design and Development course (Fall 2023). The project showcases sophisticated technical implementations including advanced memory management techniques for a robust character customization system, allowing players to modify their character's appearance and abilities dynamically. Through iterative playtesting and feedback integration, the game evolved from initial concept to polished experience. The development process emphasized systematic gameplay refinement, performance optimization, and building scalable systems. This project demonstrates strong fundamentals in game development architecture and the ability to translate design concepts into functional, performant code.",
+        image: "https://via.placeholder.com/400x250/0a0a0f/ff6600?text=Titan+Game",
         category: "Unity",
-        tags: ["Unity", "C#", "Memory Management", "Game Design", "Academic"],
-        youtubeId: "",
-        githubUrl: "https://github.com/camdenconrad/uncc-game-projects",
-        features: [
-            "Advanced memory management for character customization",
-            "Iterative playtesting and feedback integration",
-            "Systematic gameplay refinement process",
-            "Implementation of core game mechanics",
-            "Performance optimization techniques",
-            "Academic foundation in game development principles"
+        tags: ["Unity", "C#", "Memory Management", "2D Game", "Character Customization"],
+        youtubeId: "e40fMZ1vMMs",
+        githubUrl: "https://github.com/camdenconrad/titan-game",
+        gallery: [
+            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+1",
+            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+2",
+            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+3",
+            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+4"
         ],
-        technologies: "Unity, C#, Game Design Principles, Memory Management"
+        features: [
+            "Advanced memory management for dynamic character customization",
+            "Robust character customization system with persistent data",
+            "2D action gameplay with responsive controls",
+            "Iterative playtesting and feedback integration workflow",
+            "Systematic gameplay refinement and balancing",
+            "Performance optimization for smooth gameplay",
+            "Scalable architecture for extensible game systems",
+            "Academic foundation demonstrating core game dev principles"
+        ],
+        technologies: "Unity, C#, Memory Management, 2D Game Development, Data Persistence"
     }
 ];
 
 // State Management
 let currentFilter = 'all';
 let currentProjects = [...projectsData];
+let currentGalleryIndex = 0;
+let galleryAutoplayInterval = null;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -132,6 +157,67 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
     initializeIntersectionObserver();
 });
+
+// Gallery Navigation Functions
+function navigateGallery(direction) {
+    const images = document.querySelectorAll('.gallery-image');
+    const indicators = document.querySelectorAll('.gallery-indicator');
+
+    if (images.length === 0) return;
+
+    // Stop autoplay when user manually navigates
+    stopGalleryAutoplay();
+
+    images[currentGalleryIndex].classList.remove('active');
+    indicators[currentGalleryIndex].classList.remove('active');
+
+    currentGalleryIndex += direction;
+
+    if (currentGalleryIndex >= images.length) {
+        currentGalleryIndex = 0;
+    } else if (currentGalleryIndex < 0) {
+        currentGalleryIndex = images.length - 1;
+    }
+
+    images[currentGalleryIndex].classList.add('active');
+    indicators[currentGalleryIndex].classList.add('active');
+
+    // Restart autoplay
+    startGalleryAutoplay();
+}
+
+function goToSlide(index) {
+    const images = document.querySelectorAll('.gallery-image');
+    const indicators = document.querySelectorAll('.gallery-indicator');
+
+    if (images.length === 0) return;
+
+    stopGalleryAutoplay();
+
+    images[currentGalleryIndex].classList.remove('active');
+    indicators[currentGalleryIndex].classList.remove('active');
+
+    currentGalleryIndex = index;
+
+    images[currentGalleryIndex].classList.add('active');
+    indicators[currentGalleryIndex].classList.add('active');
+
+    startGalleryAutoplay();
+}
+
+function startGalleryAutoplay() {
+    stopGalleryAutoplay();
+    galleryAutoplayInterval = setInterval(() => {
+        navigateGallery(1);
+    }, 5000); // Change slide every 5 seconds
+}
+
+function stopGalleryAutoplay() {
+    if (galleryAutoplayInterval) {
+        clearInterval(galleryAutoplayInterval);
+        galleryAutoplayInterval = null;
+    }
+}
 
 // Render Projects
 function renderProjects() {
@@ -196,6 +282,39 @@ function openModal(project) {
     const modal = document.getElementById('projectModal');
     const modalBody = document.getElementById('modalBody');
 
+    const galleryHTML = project.gallery && project.gallery.length > 0 ? `
+        <div class="modal-gallery">
+            <h3>Gallery</h3>
+            <div class="gallery-container">
+                <button class="gallery-nav gallery-prev" onclick="navigateGallery(-1)" aria-label="Previous image">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="gallery-images">
+                    ${project.gallery.map((img, index) => `
+                        <img src="${img}" 
+                             alt="${project.title} screenshot ${index + 1}" 
+                             class="gallery-image ${index === 0 ? 'active' : ''}" 
+                             data-index="${index}"
+                             onerror="this.src='https://via.placeholder.com/1920x1080/0a0a0f/00ff88?text=${encodeURIComponent(project.title)}+Screenshot+${index + 1}'"
+                             loading="lazy">
+                    `).join('')}
+                </div>
+                <button class="gallery-nav gallery-next" onclick="navigateGallery(1)" aria-label="Next image">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <div class="gallery-indicators">
+                ${project.gallery.map((_, index) => `
+                    <button class="gallery-indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})" data-index="${index}" aria-label="Go to slide ${index + 1}"></button>
+                `).join('')}
+            </div>
+        </div>
+    ` : '';
+
     modalBody.innerHTML = `
         <h2 class="modal-title">${project.title}</h2>
         <div class="modal-meta">
@@ -210,8 +329,9 @@ function openModal(project) {
                     allowfullscreen>
                 </iframe>
             ` : ''}
-            <img src="${project.image}" alt="${project.title}" class="modal-image">
+            ${!project.youtubeId ? `<img src="${project.image}" alt="${project.title}" class="modal-image">` : ''}
         </div>
+        ${galleryHTML}
         <p class="modal-description">${project.fullDescription}</p>
         <div class="modal-features">
             <h3>Key Features</h3>
@@ -224,18 +344,26 @@ function openModal(project) {
             <p style="color: var(--text-secondary); padding-left: 1.5rem;">${project.technologies}</p>
         </div>
         <div class="modal-actions">
-            <a href="${project.githubUrl}" target="_blank" rel="noopener" class="modal-action-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                View on GitHub
-            </a>
+            ${project.githubUrl ? `
+                <a href="${project.githubUrl}" target="_blank" rel="noopener" class="modal-action-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+            ` : ''}
             <button onclick="closeModal()" class="modal-action-btn secondary">Close</button>
         </div>
     `;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Initialize gallery if it exists
+    if (project.gallery && project.gallery.length > 0) {
+        currentGalleryIndex = 0;
+        startGalleryAutoplay();
+    }
 }
 
 // Close Modal
@@ -243,6 +371,7 @@ function closeModal() {
     const modal = document.getElementById('projectModal');
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    stopGalleryAutoplay();
 }
 
 // Scroll to Projects
