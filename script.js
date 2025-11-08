@@ -279,8 +279,21 @@ function filterProjects(category) {
 
 // Open Modal
 function openModal(project) {
+    console.log('Opening modal for project:', project.title);
+    console.log('Has YouTube video:', !!project.youtubeId);
+    console.log('Has gallery:', project.gallery && project.gallery.length > 0);
+
+    console.log('Opening modal for:', project.title);
+    console.log('Has YouTube ID:', project.youtubeId);
+    console.log('Has gallery:', project.gallery ? project.gallery.length : 0);
+
     const modal = document.getElementById('projectModal');
     const modalBody = document.getElementById('modalBody');
+
+    if (!modal || !modalBody) {
+        console.error('Modal elements not found!');
+        return;
+    }
 
     const galleryHTML = project.gallery && project.gallery.length > 0 ? `
         <div class="modal-gallery">
@@ -325,11 +338,11 @@ function openModal(project) {
                 <iframe 
                     class="modal-video"
                     src="https://www.youtube.com/embed/${project.youtubeId}" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    frameborder="0">
                 </iframe>
-            ` : ''}
-            ${!project.youtubeId ? `<img src="${project.image}" alt="${project.title}" class="modal-image">` : ''}
+            ` : `<img src="${project.image}" alt="${project.title}" class="modal-image">`}
         </div>
         ${galleryHTML}
         <p class="modal-description">${project.fullDescription}</p>
@@ -356,6 +369,7 @@ function openModal(project) {
         </div>
     `;
 
+    console.log('Modal HTML set, activating modal');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 
@@ -363,6 +377,7 @@ function openModal(project) {
     if (project.gallery && project.gallery.length > 0) {
         currentGalleryIndex = 0;
         startGalleryAutoplay();
+        console.log('Gallery initialized with', project.gallery.length, 'images');
     }
 }
 

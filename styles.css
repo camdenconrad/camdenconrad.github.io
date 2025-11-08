@@ -554,6 +554,7 @@ html {
     position: relative;
     background: var(--bg-card);
     border-radius: 20px;
+    width: 100%;
     max-width: 1000px;
     max-height: 90vh;
     overflow-y: auto;
@@ -620,20 +621,33 @@ html {
 
 .modal-media {
     margin-bottom: 2rem;
+    width: 100%;
+    display: block;
 }
 
 .modal-image {
     width: 100%;
+    height: auto;
     border-radius: 15px;
     margin-bottom: 1rem;
+    display: block;
 }
 
 .modal-video {
     width: 100%;
+    height: auto;
+    min-height: 400px;
     aspect-ratio: 16/9;
     border-radius: 15px;
     border: none;
     margin-bottom: 1rem;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .modal-video {
+        min-height: 250px;
+    }
 }
 
 .modal-description {
