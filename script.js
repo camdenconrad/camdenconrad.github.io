@@ -1,40 +1,26 @@
 // Projects Data
 const projectsData = [
     {
-        id: 1,
-        title: "Ajaara",
-        shortDescription: "Narrative action-adventure blending Indian and Native American mythology with emergent AI",
-        fullDescription: "Ajaara is my ongoing capstone project — a narrative action-adventure game that blends Indian and Native American mythological influences into a reverse Bhagavad Gita–inspired story about moral defiance and divine wrath. As the sole developer, I'm building this in Unreal Engine 5 from the ground up, with a focus on making combat and AI systems feel reactive and alive through emergent behavior design. The game is both a technical showcase and a cultural synthesis, exploring themes of duty, rebellion, and consequence through interactive storytelling. Beyond programming, I handle all 3D modeling, rigging, animation, and audio production, creating an original soundtrack in Ableton Live that supports the narrative's emotional weight.",
-        image: "images/ajaara/HighresScreenshot00004.jpg",
-        category: "Unreal",
-        tags: ["Unreal Engine 5", "C++", "AI Systems", "3D Modeling", "Audio Design"],
-        youtubeId: "2gdyq9h1tRw",
-        githubUrl: "",
-        gallery: [
-            "images/ajaara/Ajara_SS.png",
-            "images/ajaara/Ajaara_Player_SS.png",
-            "images/ajaara/Ajaara_Village_SS.png",
-            "images/ajaara/HighresScreenshot00001.png",
-            "images/ajaara/HighresScreenshot00002.png",
-            "images/ajaara/HighresScreenshot00003.jpg",
-            "images/ajaara/HighresScreenshot00004.jpg",
-            "images/ajaara/HighresScreenshot00006.jpg",
-            "images/ajaara/Screenshot 2025-04-22 094645.png",
-            "images/ajaara/Screenshot 2025-04-22 094737.png",
-            "images/ajaara/Screenshot 2025-04-22 094835.png",
-            "images/ajaara/Screenshot 2025-04-22 095328.png"
-        ],
+        id: 5,
+        title: "Axis Games — Professional Work",
+        shortDescription: "Systems developer specializing in AI, ML, and gameplay architecture",
+        fullDescription: "As a Systems Developer at Axis Games (April 2025 - Present), I specialize in AI, machine learning, and gameplay systems in Unity. Key contributions include rewriting and shipping the Axis Replay System with improved memory management, optimizing major tools like the crowd system editor for faster iteration, and designing the Article System from scratch for data-driven gameplay. I work independently on complex systems while maintaining clear communication with the broader team. Check out Axis Football 2026 on Steam and read our mention in this ESPN article.",
+        image: "Axis_football_26-1090110268.png",
+        category: "Unity",
+        tags: ["Unity", "C#", "AI/ML", "Systems Architecture", "Professional"],
+        youtubeId: "",
+        githubUrl: "", // Professional work - no public repo
+        steamUrl: "https://store.steampowered.com/app/3219190/Axis_Football_2026/",
+        espnUrl: "https://www.espn.com/gaming/story/_/id/45954475/axis-football-2026-release-date",
         features: [
-            "Reverse Bhagavad Gita narrative: moral defiance against divine authority",
-            "Cultural synthesis of Indian and Native American mythological elements",
-            "Emergent AI behavior systems designed to feel reactive and alive",
-            "Custom combat mechanics emphasizing player agency and consequence",
-            "Player decision-making framework with branching moral implications",
-            "Optimized 3D modeling pipeline focused on performance and style",
-            "Original soundtrack and soundscape crafted in Ableton Live",
-            "Solo-developed: programming, art, animation, audio, and design"
+            "Rewrote Axis Replay System with fixed memory management",
+            "Optimized crowd system editor for dramatically faster iteration",
+            "Designed and implemented Article System for data-driven gameplay",
+            "Core developer for AI and machine learning systems",
+            "Handle complex experimental implementations independently",
+            "Maintain scalable, maintainable code for team collaboration"
         ],
-        technologies: "Unreal Engine 5, C++, Blueprints, Autodesk Maya, Ableton Live"
+        technologies: "Unity, C#, AI/ML Systems, Data-Driven Architecture, Optimization"
     },
     {
         id: 2,
@@ -119,26 +105,40 @@ const projectsData = [
         technologies: "C#, WebSockets, Web Technologies, Database Management, Server Architecture"
     },
     {
-        id: 5,
-        title: "Axis Games — Professional Work",
-        shortDescription: "Systems developer specializing in AI, ML, and gameplay architecture",
-        fullDescription: "As a Systems Developer at Axis Games (April 2025 - Present), I specialize in AI, machine learning, and gameplay systems in Unity. Key contributions include rewriting and shipping the Axis Replay System with improved memory management, optimizing major tools like the crowd system editor for faster iteration, and designing the Article System from scratch for data-driven gameplay. I work independently on complex systems while maintaining clear communication with the broader team. Check out Axis Football 2026 on Steam and read our mention in this ESPN article.",
-        image: "Axis_football_26-1090110268.png",
-        category: "Unity",
-        tags: ["Unity", "C#", "AI/ML", "Systems Architecture", "Professional"],
-        youtubeId: "",
-        githubUrl: "", // Professional work - no public repo
-        steamUrl: "https://store.steampowered.com/app/3219190/Axis_Football_2026/",
-        espnUrl: "https://www.espn.com/gaming/story/_/id/45954475/axis-football-2026-release-date",
-        features: [
-            "Rewrote Axis Replay System with fixed memory management",
-            "Optimized crowd system editor for dramatically faster iteration",
-            "Designed and implemented Article System for data-driven gameplay",
-            "Core developer for AI and machine learning systems",
-            "Handle complex experimental implementations independently",
-            "Maintain scalable, maintainable code for team collaboration"
+        id: 1,
+        title: "Ajaara",
+        shortDescription: "Narrative action-adventure blending Indian and Native American mythology with emergent AI",
+        fullDescription: "Ajaara is my ongoing capstone project — a narrative action-adventure game that blends Indian and Native American mythological influences into a reverse Bhagavad Gita–inspired story about moral defiance and divine wrath. As the sole developer, I'm building this in Unreal Engine 5 from the ground up, with a focus on making combat and AI systems feel reactive and alive through emergent behavior design. The game is both a technical showcase and a cultural synthesis, exploring themes of duty, rebellion, and consequence through interactive storytelling. Beyond programming, I handle all 3D modeling, rigging, animation, and audio production, creating an original soundtrack in Ableton Live that supports the narrative's emotional weight.",
+        image: "images/ajaara/HighresScreenshot00004.jpg",
+        category: "Unreal",
+        tags: ["Unreal Engine 5", "C++", "AI Systems", "3D Modeling", "Audio Design"],
+        youtubeId: "2gdyq9h1tRw",
+        githubUrl: "",
+        gallery: [
+            "images/ajaara/Ajara_SS.png",
+            "images/ajaara/Ajaara_Player_SS.png",
+            "images/ajaara/Ajaara_Village_SS.png",
+            "images/ajaara/HighresScreenshot00001.png",
+            "images/ajaara/HighresScreenshot00002.png",
+            "images/ajaara/HighresScreenshot00003.jpg",
+            "images/ajaara/HighresScreenshot00004.jpg",
+            "images/ajaara/HighresScreenshot00006.jpg",
+            "images/ajaara/Screenshot 2025-04-22 094645.png",
+            "images/ajaara/Screenshot 2025-04-22 094737.png",
+            "images/ajaara/Screenshot 2025-04-22 094835.png",
+            "images/ajaara/Screenshot 2025-04-22 095328.png"
         ],
-        technologies: "Unity, C#, AI/ML Systems, Data-Driven Architecture, Optimization"
+        features: [
+            "Reverse Bhagavad Gita narrative: moral defiance against divine authority",
+            "Cultural synthesis of Indian and Native American mythological elements",
+            "Emergent AI behavior systems designed to feel reactive and alive",
+            "Custom combat mechanics emphasizing player agency and consequence",
+            "Player decision-making framework with branching moral implications",
+            "Optimized 3D modeling pipeline focused on performance and style",
+            "Original soundtrack and soundscape crafted in Ableton Live",
+            "Solo-developed: programming, art, animation, audio, and design"
+        ],
+        technologies: "Unreal Engine 5, C++, Blueprints, Autodesk Maya, Ableton Live"
     },
     {
         id: 6,
