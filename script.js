@@ -9,7 +9,7 @@ const projectsData = [
         category: "Unreal",
         tags: ["Unreal Engine 5", "C++", "AI Systems", "3D Modeling", "Audio Design"],
         youtubeId: "2gdyq9h1tRw",
-        githubUrl: "https://github.com/camdenconrad/ajaara",
+        githubUrl: "",
         gallery: [
             "images/ajaara/Ajara_SS.png",
             "images/ajaara/Ajaara_Player_SS.png",
@@ -83,7 +83,7 @@ const projectsData = [
         category: "AI",
         tags: ["C#", "Neural Networks", "LLM Integration", "Research", "Adaptive Systems"],
         youtubeId: "",
-        githubUrl: "https://github.com/camdenconrad/aria-neural-network",
+        githubUrl: "",
         features: [
             "Self-organizing architectures with introspective capabilities",
             "Explores autonomy through internal reflection, not just training",
@@ -105,7 +105,7 @@ const projectsData = [
         category: "Web",
         tags: ["C#", "Web Technologies", "Multiplayer", "Networking", "Full-Stack"],
         youtubeId: "",
-        githubUrl: "https://github.com/camdenconrad/multiplayer-platform",
+        githubUrl: "",
         features: [
             "Explores network reliability and fault-tolerant system design",
             "Seamless cross-device connectivity: desktop and mobile unified",
@@ -122,12 +122,14 @@ const projectsData = [
         id: 5,
         title: "Axis Games — Professional Work",
         shortDescription: "Systems developer specializing in AI, ML, and gameplay architecture",
-        fullDescription: "As a Systems Developer at Axis Games (April 2025 - Present), I specialize in AI, machine learning, and gameplay systems in Unity. Key contributions include rewriting and shipping the Axis Replay System with improved memory management, optimizing major tools like the crowd system editor for faster iteration, and designing the Article System from scratch for data-driven gameplay. I work independently on complex systems while maintaining clear communication with the broader team.",
+        fullDescription: "As a Systems Developer at Axis Games (April 2025 - Present), I specialize in AI, machine learning, and gameplay systems in Unity. Key contributions include rewriting and shipping the Axis Replay System with improved memory management, optimizing major tools like the crowd system editor for faster iteration, and designing the Article System from scratch for data-driven gameplay. I work independently on complex systems while maintaining clear communication with the broader team. Check out Axis Football 2026 on Steam and read our mention in this ESPN article.",
         image: "Axis_football_26-1090110268.png",
         category: "Unity",
         tags: ["Unity", "C#", "AI/ML", "Systems Architecture", "Professional"],
         youtubeId: "",
         githubUrl: "", // Professional work - no public repo
+        steamUrl: "https://store.steampowered.com/app/3219190/Axis_Football_2026/",
+        espnUrl: "https://www.espn.com/gaming/story/_/id/45954475/axis-football-2026-release-date",
         features: [
             "Rewrote Axis Replay System with fixed memory management",
             "Optimized crowd system editor for dramatically faster iteration",
@@ -147,7 +149,7 @@ const projectsData = [
         category: "Unity",
         tags: ["Unity", "C#", "Memory Management", "2D Game", "Character Customization"],
         youtubeId: "e40fMZ1vMMs",
-        githubUrl: "https://github.com/camdenconrad/titan-game",
+        githubUrl: "",
         gallery: [],
         features: [
             "Advanced memory management for dynamic character customization",
@@ -344,11 +346,15 @@ function openModal(project) {
     // Build features HTML
     const featuresHTML = project.features.map(feature => '<li>' + feature + '</li>').join('');
 
-    // Build GitHub button HTML if URL exists
-    const githubButtonHTML = project.githubUrl ? '<a href="' + project.githubUrl + '" target="_blank" rel="noopener" class="modal-action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>View on GitHub</a>' : '';
+    // Build action button HTMLs if URLs exist
+    const githubButtonHTML = project.githubUrl ? '<a href="' + project.githubUrl + '" target="_blank" rel="noopener" class="modal-action-btn" aria-label="Open GitHub repository"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>View on GitHub</a>' : '';
+
+    const steamButtonHTML = project.steamUrl ? '<a href="' + project.steamUrl + '" target="_blank" rel="noopener" class="modal-action-btn" aria-label="Open Steam page"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="13" r="3" fill="var(--bg-dark)"/><circle cx="15.5" cy="8.5" r="2.5"/></svg>View on Steam</a>' : '';
+
+    const espnButtonHTML = project.espnUrl ? '<a href="' + project.espnUrl + '" target="_blank" rel="noopener" class="modal-action-btn" aria-label="Open ESPN article"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="3"/><rect x="3" y="10.5" width="14" height="3"/><rect x="3" y="16" width="10" height="3"/></svg>Read on ESPN</a>' : '';
 
     // Construct full modal HTML
-    const fullHTML = '<h2 class="modal-title">' + project.title + '</h2><div class="modal-meta">' + tagsHTML + '</div>' + mediaHTML + galleryHTML + '<p class="modal-description">' + project.fullDescription + '</p><div class="modal-features"><h3>Key Features</h3><ul>' + featuresHTML + '</ul></div><div class="modal-features"><h3>Technologies Used</h3><p style="color: var(--text-secondary); padding-left: 1.5rem;">' + project.technologies + '</p></div><div class="modal-actions">' + githubButtonHTML + '<button onclick="closeModal()" class="modal-action-btn secondary">Close</button></div>';
+    const fullHTML = '<h2 class="modal-title">' + project.title + '</h2><div class="modal-meta">' + tagsHTML + '</div>' + mediaHTML + galleryHTML + '<p class="modal-description">' + project.fullDescription + '</p><div class="modal-features"><h3>Key Features</h3><ul>' + featuresHTML + '</ul></div><div class="modal-features"><h3>Technologies Used</h3><p style="color: var(--text-secondary); padding-left: 1.5rem;">' + project.technologies + '</p></div><div class="modal-actions">' + githubButtonHTML + steamButtonHTML + espnButtonHTML + '<button onclick="closeModal()" class="modal-action-btn secondary">Close</button></div>';
 
     // Set the modal content
     modalBody.innerHTML = fullHTML;
