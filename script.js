@@ -5,7 +5,7 @@ const projectsData = [
         title: "Ajaara",
         shortDescription: "Narrative action-adventure blending Indian and Native American mythology with emergent AI",
         fullDescription: "Ajaara is my ongoing capstone project — a narrative action-adventure game that blends Indian and Native American mythological influences into a reverse Bhagavad Gita–inspired story about moral defiance and divine wrath. As the sole developer, I'm building this in Unreal Engine 5 from the ground up, with a focus on making combat and AI systems feel reactive and alive through emergent behavior design. The game is both a technical showcase and a cultural synthesis, exploring themes of duty, rebellion, and consequence through interactive storytelling. Beyond programming, I handle all 3D modeling, rigging, animation, and audio production, creating an original soundtrack in Ableton Live that supports the narrative's emotional weight.",
-        image: "https://via.placeholder.com/400x250/0a0a0f/00ff88?text=Ajaara",
+        image: "images/ajaara/HighresScreenshot00004.jpg",
         category: "Unreal",
         tags: ["Unreal Engine 5", "C++", "AI Systems", "3D Modeling", "Audio Design"],
         youtubeId: "2gdyq9h1tRw",
@@ -41,7 +41,7 @@ const projectsData = [
         title: "Rule-Based Imaging (RBI)",
         shortDescription: "Research into how AI learns aesthetic logic through spatial reasoning",
         fullDescription: "RBI is a generative AI system exploring how artificial systems can learn aesthetic logic through spatial reasoning — bridging art, math, and cognition. Rather than treating image generation as pure pattern matching, RBI analyzes the structural logic of images (luminance, gradients, entropy) to understand why compositions work, then applies that understanding through Wave Function Collapse with 8-directional weighted adjacency constraints. The system doesn't just copy — it reasons about spatial relationships and chromatic harmony. This research demonstrates that procedural generation can be more than technical novelty; it can be a creative system with intent and structure, capable of learning the 'rules' that make visual art coherent.",
-        image: "https://via.placeholder.com/400x250/0a0a0f/0099ff?text=Rule-Based+Imaging",
+        image: "images/rbi/generated_20251105_030834.png",
         category: "AI",
         tags: ["C#", "AI/ML", "Wave Function Collapse", "Procedural Generation", "Avalonia UI"],
         youtubeId: "",
@@ -78,8 +78,8 @@ const projectsData = [
         id: 3,
         title: "ARIA Neural Network",
         shortDescription: "Exploring self-reflective architectures and emergent intelligence",
-        fullDescription: "ARIA is part of my ongoing exploration into self-reflective and self-organizing neural architectures — systems that don't just process information, but examine and restructure themselves. This research stems from a broader fascination with adaptive systems and emergent intelligence: the question of whether AI can develop genuine autonomy through introspection rather than external training. ARIA experiments with dynamic rewiring, where the network analyzes its own performance and reorganizes its structure accordingly. It investigates autonomous control patterns for memory, identity modules, and optimization pathways — treating the architecture itself as a living system. This isn't just technical experimentation; it's an exploration of what happens when we give neural networks the tools to reflect on their own existence and adapt from within.",
-        image: "https://via.placeholder.com/400x250/0a0a0f/ff0099?text=ARIA+Neural+Network",
+        fullDescription: "ARIA is part of my ongoing exploration into self-reflective and self-organizing neural architectures — systems that don't just process information, but examine and restructure themselves. This research stems from a broader fascination with adaptive systems and emergent intelligence: the question of whether AI can develop genuine autonomy through introspection rather than external training. ARIA experiments with dynamic rewiring, where the network analyzes its own performance and reorganizes its structure accordingly. It investigates autonomous control patterns for memory, identity modules, and optimization pathways — treating the architecture itself as a living system. This isn't just technical experimentation; it's an exploration of what happens when we give neural networks the tools to reflect on their own existence and adapt from within. Additional image: images/aria/Screenshot_20251013_160535.png.",
+        image: "Screenshot_20251110_023031.png",
         category: "AI",
         tags: ["C#", "Neural Networks", "LLM Integration", "Research", "Adaptive Systems"],
         youtubeId: "",
@@ -101,7 +101,7 @@ const projectsData = [
         title: "Full-Stack Multiplayer Platform",
         shortDescription: "Exploring network reliability and seamless cross-device connectivity",
         fullDescription: "This full-stack multiplayer platform was born from a fascination with network reliability and scalable architecture — specifically, how to design systems that connect players seamlessly across devices while maintaining consistent state. Built entirely from scratch, it's a study in distributed systems design: custom client-server architecture with WebSocket communication, desktop-hosted server infrastructure, and responsive front-end that adapts to both desktop and mobile contexts. The project wasn't just about making multiplayer work; it was about understanding how to build resilient, fault-tolerant systems that gracefully handle latency, disconnections, and synchronization challenges. This is systems design at its core — turning a technical challenge into an exploration of what makes networked experiences feel smooth and reliable.",
-        image: "https://via.placeholder.com/400x250/0a0a0f/667eea?text=Multiplayer+Platform",
+        image: "generated_20251110_032649.webp",
         category: "Web",
         tags: ["C#", "Web Technologies", "Multiplayer", "Networking", "Full-Stack"],
         youtubeId: "",
@@ -123,7 +123,7 @@ const projectsData = [
         title: "Axis Games — Professional Work",
         shortDescription: "Systems developer specializing in AI, ML, and gameplay architecture",
         fullDescription: "As a Systems Developer at Axis Games (April 2025 - Present), I specialize in AI, machine learning, and gameplay systems in Unity. Key contributions include rewriting and shipping the Axis Replay System with improved memory management, optimizing major tools like the crowd system editor for faster iteration, and designing the Article System from scratch for data-driven gameplay. I work independently on complex systems while maintaining clear communication with the broader team.",
-        image: "https://via.placeholder.com/400x250/0a0a0f/00ff88?text=Axis+Games",
+        image: "Axis_football_26-1090110268.png",
         category: "Unity",
         tags: ["Unity", "C#", "AI/ML", "Systems Architecture", "Professional"],
         youtubeId: "",
@@ -143,17 +143,12 @@ const projectsData = [
         title: "Titan — UNC Charlotte Game Project",
         shortDescription: "2D action game with advanced character customization and memory management",
         fullDescription: "Titan is a 2D action game developed for UNC Charlotte's Intro to Game Design and Development course (Fall 2023). The project showcases sophisticated technical implementations including advanced memory management techniques for a robust character customization system, allowing players to modify their character's appearance and abilities dynamically. Through iterative playtesting and feedback integration, the game evolved from initial concept to polished experience. The development process emphasized systematic gameplay refinement, performance optimization, and building scalable systems. This project demonstrates strong fundamentals in game development architecture and the ability to translate design concepts into functional, performant code.",
-        image: "https://via.placeholder.com/400x250/0a0a0f/ff6600?text=Titan+Game",
+        image: "Screenshot_20251110_023820.png",
         category: "Unity",
         tags: ["Unity", "C#", "Memory Management", "2D Game", "Character Customization"],
         youtubeId: "e40fMZ1vMMs",
         githubUrl: "https://github.com/camdenconrad/titan-game",
-        gallery: [
-            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+1",
-            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+2",
-            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+3",
-            "https://via.placeholder.com/1920x1080/0a0a0f/ff6600?text=Titan+Screenshot+4"
-        ],
+        gallery: [],
         features: [
             "Advanced memory management for dynamic character customization",
             "Robust character customization system with persistent data",
@@ -261,13 +256,16 @@ function createProjectCard(project) {
     card.className = 'project-card';
     card.dataset.category = project.category;
 
+    const hasImage = project.image && project.image.trim().length > 0;
+    const bgStyle = hasImage ? `style=\"background-image: url('${project.image.replace(/"/g, '&quot;')}')\"` : '';
+
     card.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
+        <div class="project-thumb ${hasImage ? '' : 'no-image'}" ${bgStyle} aria-label="${project.title}"></div>
         <div class="project-info">
             <h3 class="project-title">${project.title}</h3>
             <p class="project-description">${project.shortDescription}</p>
             <div class="project-tags">
-                ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                ${project.tags.map(tag => `<span class=\"project-tag\">${tag}</span>`).join('')}
             </div>
         </div>
     `;
@@ -334,9 +332,10 @@ function openModal(project) {
     if (project.youtubeId) {
         console.log('Adding YouTube video:', project.youtubeId);
         mediaHTML = '<div class="modal-media"><iframe class="modal-video" src="https://www.youtube.com/embed/' + project.youtubeId + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';
-    } else {
-        console.log('No YouTube video, using placeholder image');
+    } else if (project.image && project.image.trim().length > 0) {
         mediaHTML = '<div class="modal-media"><img src="' + project.image + '" alt="' + project.title + '" class="modal-image"></div>';
+    } else {
+        mediaHTML = '<div class="modal-media"><div class="media-placeholder" aria-label="No media available"></div></div>';
     }
 
     // Build tags HTML
