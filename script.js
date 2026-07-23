@@ -235,6 +235,28 @@ const projectsData = [
     },
     {
         section: 'games', code: 'GAME-02',
+        title: 'Bellatrix',
+        short: 'A from-scratch WGSL path tracer with a custom voxel modeling system on top — no game engine underneath.',
+        image: 'images/bellatrix/room.webp',
+        gallery: [
+            'images/bellatrix/room.webp', 'images/bellatrix/editor-ui.webp', 'images/bellatrix/layers-ai.webp',
+            'images/bellatrix/scene-3.webp', 'images/bellatrix/scene-10.webp', 'images/bellatrix/scene-a.webp', 'images/bellatrix/lighting.webp'
+        ],
+        tags: ['Rust', 'wgpu', 'Path tracing', 'WGSL', 'Renderer'],
+        description: 'Bellatrix is a voxel modeling tool built on a rendering engine I wrote entirely from scratch — no game engine underneath. The renderer is a real WGSL path tracer running on wgpu: progressive accumulation, a denoiser, soft shadows, bloom, and depth of field, all hand-written. On top of it sits a custom face-primitive modeling system — ghost placement, depth testing, five selection modes, full undo/redo — with a proprietary format that stores 20,000+ faces at roughly 2 MB. It is where most of my low-level graphics work lives: a physically-based renderer and the editor around it, built end to end.',
+        features: [
+            'From-scratch WGSL path tracer on wgpu — no engine',
+            'Progressive accumulation + denoiser for clean frames',
+            'Soft shadows, bloom, and depth-of-field passes',
+            'Custom face-primitive voxel modeling system',
+            'Ghost placement, depth testing, five selection modes, full undo/redo',
+            'Proprietary format: 20,000+ faces at ~2 MB'
+        ],
+        tech: 'Rust · wgpu · WGSL · path tracing · winit',
+        github: 'https://github.com/camdenconrad/Bellatrix'
+    },
+    {
+        section: 'games', code: 'GAME-03',
         title: 'Ajaara',
         short: 'Personal Unreal Engine 5 project — narrative action-adventure with reactive AI, built solo.',
         image: 'images/ajaara/HighresScreenshot00004.jpg',
@@ -261,27 +283,6 @@ const projectsData = [
     // ===== Tools & ML =====
     {
         section: 'tools', code: 'TOOL-01',
-        title: 'Bellatrix',
-        short: 'Isometric voxel face-composition editor and an engine-less wgpu renderer, both built from scratch.',
-        image: 'images/bellatrix/room.webp',
-        gallery: [
-            'images/bellatrix/room.webp', 'images/bellatrix/editor-ui.webp', 'images/bellatrix/layers-ai.webp',
-            'images/bellatrix/scene-3.webp', 'images/bellatrix/scene-10.webp', 'images/bellatrix/scene-a.webp', 'images/bellatrix/lighting.webp'
-        ],
-        tags: ['Rust', 'wgpu', 'WGSL', 'winit', 'Renderer'],
-        description: 'Bellatrix is an isometric face-composition voxel editor built on an engine-less wgpu renderer I wrote from scratch. It works in face primitives with ghost placement, depth testing, five selection modes, and full undo/redo; its proprietary format stores 20,000+ faces at roughly 2 MB. It is where a lot of my low-level graphics work lives — a real rendering pipeline without a game engine underneath it.',
-        features: [
-            'Engine-less wgpu renderer built from scratch',
-            'Face-primitive editing with ghost placement and depth testing',
-            'Five selection modes and full undo/redo',
-            'Proprietary format: 20,000+ faces at ~2 MB',
-            'Isometric voxel composition workflow'
-        ],
-        tech: 'Rust · wgpu · WGSL · winit',
-        github: 'https://github.com/camdenconrad/Bellatrix'
-    },
-    {
-        section: 'tools', code: 'TOOL-02',
         title: 'repliKate',
         short: 'High-velocity continuous-learning ML engine — adapts online without pretraining at ~100 MB RAM.',
         image: 'images/replikate/online-learning.webp',
@@ -299,7 +300,7 @@ const projectsData = [
         github: 'https://github.com/camdenconrad/repliKate'
     },
     {
-        section: 'tools', code: 'TOOL-03',
+        section: 'tools', code: 'TOOL-02',
         title: 'RustRent',
         short: 'Rental-market analysis tool in Rust, with a job-market-listings variant in progress.',
         image: 'images/rustrent/rent-analysis.webp',
@@ -314,7 +315,7 @@ const projectsData = [
         private: true
     },
     {
-        section: 'tools', code: 'TOOL-04',
+        section: 'tools', code: 'TOOL-03',
         title: 'Nocturne',
         short: 'Native Rust music client for RuneOS — part of the OS app suite.',
         image: 'images/nocturne/player.webp',
