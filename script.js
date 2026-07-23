@@ -114,23 +114,23 @@ const projectsData = [
     {
         section: 'aerospace', code: 'FSW-01', flagship: true,
         title: 'Orbital',
-        kicker: 'Astrodynamics engine',
+        kicker: 'Interplanetary trajectory optimizer',
         stats: 'Rust · JPL DE440 (21 bodies) · Dormand–Prince 5(4) · 1PN relativity',
-        short: 'High-fidelity solar-system simulator and deterministic trajectory solver — reproduces real interplanetary launch windows (e.g. Mars 2020) from first principles.',
+        short: 'Interplanetary trajectory optimizer + solar-system simulator — designs real transfers and rediscovers the Mars 2020 launch window to within a day.',
         image: 'images/orbital/porkchop.png',
         gallery: ['images/orbital/porkchop.png', 'images/orbital/hero.png'],
-        tags: ['Rust', 'wgpu', 'Orbital mechanics', '1PN n-body', 'JPL DE440'],
-        description: 'Orbital is a from-scratch, high-fidelity solar-system simulator and deterministic trajectory solver, built from first principles rather than extending existing astrodynamics frameworks. It queries real JPL DE440 body states through ANISE across a 21-body catalog, then numerically propagates the spacecraft under Newtonian n-body plus first post-Newtonian (1PN) relativistic dynamics using an adaptive Dormand–Prince 5(4) integrator written as a pure function of its inputs — no wall clock, no threads, no randomness — so two runs on the same build are bit-for-bit reproducible. On top of that sits a deterministic beam-search trajectory solver with Lambert seeding and GPU porkchop (C3 / Δv) scans. Given only a departure window, it independently reproduces the Mars 2020 launch opportunity — matching departure date and launch energy to within a day and about 1% — and everything renders live in a wgpu 3D view. It\'s the clearest expression of where I want to be: mission design and GNC.',
+        tags: ['Rust', 'Trajectory optimization', 'Lambert / porkchop', '1PN n-body', 'JPL DE440'],
+        description: 'Orbital is a from-scratch interplanetary trajectory optimizer and high-fidelity solar-system simulator, built from first principles rather than extending existing astrodynamics frameworks. It designs real transfers under full n-body, first post-Newtonian (1PN) dynamics: Lambert/porkchop screening, a Lambert-seeded beam search, gravity-assist tours, low-thrust (SEP) profiles, and a two-phase corrector with B-plane targeting at arrival. It propagates on real JPL DE440 ephemerides (via ANISE) with an adaptive Dormand–Prince 5(4) integrator written as a pure function of its inputs — no wall clock, no threads, no randomness — so two runs on the same build are bit-for-bit reproducible. Validated against published mission data: it rediscovers the Mars 2020 launch to within a day of departure and ~1% of launch energy, and finds the 2026/27 type-II Mars window consistent with the JPL Trajectory Browser. A single native Rust app (eframe/egui + wgpu) with GPU porkchop screening and a live 3D view.',
         features: [
-            'Real JPL DE440 body states via ANISE across a 21-body catalog',
-            'Newtonian n-body + 1PN relativity — reproduces Mercury\'s ~43″/century perihelion advance',
-            'Deterministic adaptive Dormand–Prince 5(4) propagator — bit-for-bit reproducible on a given build',
-            'Beam-search solver reproduces the Mars 2020 launch window to ~1 day / ~1% launch energy',
-            'Lambert seeding with GPU porkchop (C3 / Δv) scans',
-            'Live wgpu 3D view — orbit trails, arcball camera, true/log-scale toggle',
-            'Physics and reproducibility claims covered by automated tests'
+            'Designs real transfers under full n-body + 1PN post-Newtonian dynamics',
+            'Lambert / porkchop screening, Lambert-seeded beam search, gravity-assist tours',
+            'Low-thrust (SEP) profiles and a two-phase corrector with B-plane targeting at arrival',
+            'Rediscovers Mars 2020 to ~1 day / ~1% launch energy; 2026/27 window matches the JPL Trajectory Browser',
+            'Real JPL DE440 ephemerides via ANISE; adaptive Dormand–Prince 5(4) — bit-for-bit reproducible on a given build',
+            'Reproduces Mercury\'s ~43″/century perihelion advance in a dedicated validation case',
+            'Single native Rust app (eframe/egui + wgpu) — GPU porkchop screening + live 3D view'
         ],
-        tech: 'Rust · wgpu · egui · ANISE / JPL DE440 · numerical integration',
+        tech: 'Rust · wgpu / egui · ANISE / JPL DE440 · DP5(4) · B-plane targeting',
         github: 'https://github.com/camdenconrad/Orbital'
     },
     {
