@@ -135,7 +135,7 @@ const projectsData = [
         section: 'aerospace', code: 'FSW-02',
         title: 'Besom',
         short: 'Deterministic simulation harness for NASA cFS — identical scenarios produce byte-identical telemetry.',
-        visual: 'besom',
+        image: 'images/besom/ground-station.webp',
         tags: ['Rust', 'Apache-2.0', 'cFS / cFE', 'Determinism', 'Ground station'],
         description: 'Besom is an open-source deterministic simulation harness for NASA\'s core Flight System (cFS). It runs real, unmodified cFE flight software but owns the clock: identical scenarios produce byte-identical telemetry, which supports reproducible regression testing — something NOS3-style real-time simulators aren\'t built for. Besom propagates a two-body orbit in lockstep with the software under test and doubles as a ground station for command and telemetry.',
         features: [
@@ -174,8 +174,8 @@ const projectsData = [
         section: 'systems', code: 'OS-01',
         title: 'RuneOS',
         short: 'A full custom, daily-driven Linux stack — packaged kernel, Smithay compositor, native Rust shell, ~30 daemons, custom scheduler.',
-        image: 'images/runeos/desktop.webp',
-        gallery: ['images/runeos/desktop.webp', 'images/runeos/app-a.webp', 'images/runeos/app-b.webp', 'images/nocturne/player-1.webp'],
+        image: 'images/runeos/power.webp',
+        gallery: ['images/runeos/power.webp', 'images/runeos/desktop.webp', 'images/runeos/sunset.webp', 'images/runeos/desktop2.webp'],
         tags: ['Rust', 'Wayland / Smithay', 'sched_ext', 'Linux', 'Compositor'],
         description: 'RuneOS is a full custom Linux stack that I build and daily-drive. It includes a packaged kernel (linux-rune, Manjaro-based), a Wayland compositor built on Smithay, a native Rust shell, a package manager, roughly 30 system daemons, a custom sched_ext scheduler, and a native application suite. Parts of it are written under deliberately strict, self-imposed coding rules. The app suite includes Luna (an iMessage client), Nocturne (a Spotify client), Cauldron (the IDE above), and Hallow (a browser fork).',
         features: [
@@ -196,23 +196,6 @@ const projectsData = [
     },
     {
         section: 'systems', code: 'OS-02',
-        title: 'Nocturne',
-        short: 'Native Rust music client for RuneOS — part of the OS app suite.',
-        image: 'images/nocturne/player-1.webp',
-        gallery: ['images/nocturne/player-1.webp', 'images/nocturne/player-2.webp'],
-        tags: ['Rust', 'Wayland', 'Audio', 'Native UI'],
-        description: 'Nocturne is a native Rust music client built for RuneOS — a clean, keyboard-driven player that fits the OS\'s design language and rendering stack. It is one of the native applications in the environment I actually use day to day, rather than a proof of concept.',
-        features: [
-            'Native Rust client for RuneOS',
-            'Keyboard-driven, fits the OS design language',
-            'Integrated with the RuneOS rendering stack',
-            'Part of a daily-driven native app suite'
-        ],
-        tech: 'Rust · native UI · audio',
-        github: 'https://github.com/camdenconrad/nocturne'
-    },
-    {
-        section: 'systems', code: 'OS-03',
         title: 'Coven',
         short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
         visual: 'coven',
@@ -280,10 +263,10 @@ const projectsData = [
         section: 'tools', code: 'TOOL-01',
         title: 'Bellatrix',
         short: 'Isometric voxel face-composition editor and an engine-less wgpu renderer, both built from scratch.',
-        image: 'images/bellatrix/editor-ui.webp',
+        image: 'images/bellatrix/room.webp',
         gallery: [
-            'images/bellatrix/editor-ui.webp', 'images/bellatrix/layers-ai.webp', 'images/bellatrix/scene-3.webp',
-            'images/bellatrix/scene-10.webp', 'images/bellatrix/scene-a.webp', 'images/bellatrix/lighting.webp'
+            'images/bellatrix/room.webp', 'images/bellatrix/editor-ui.webp', 'images/bellatrix/layers-ai.webp',
+            'images/bellatrix/scene-3.webp', 'images/bellatrix/scene-10.webp', 'images/bellatrix/scene-a.webp', 'images/bellatrix/lighting.webp'
         ],
         tags: ['Rust', 'wgpu', 'WGSL', 'winit', 'Renderer'],
         description: 'Bellatrix is an isometric face-composition voxel editor built on an engine-less wgpu renderer I wrote from scratch. It works in face primitives with ghost placement, depth testing, five selection modes, and full undo/redo; its proprietary format stores 20,000+ faces at roughly 2 MB. It is where a lot of my low-level graphics work lives — a real rendering pipeline without a game engine underneath it.',
@@ -329,6 +312,22 @@ const projectsData = [
         ],
         tech: 'Rust · data analysis',
         private: true
+    },
+    {
+        section: 'tools', code: 'TOOL-04',
+        title: 'Nocturne',
+        short: 'Native Rust music client for RuneOS — part of the OS app suite.',
+        image: 'images/nocturne/player.webp',
+        gallery: ['images/nocturne/player.webp', 'images/nocturne/player-1.webp', 'images/nocturne/player-2.webp'],
+        tags: ['Rust', 'Wayland', 'Audio', 'Native UI'],
+        description: 'Nocturne is a native Rust music client built for RuneOS — a clean, keyboard-driven player that fits the OS\'s design language and rendering stack. A small piece of the daily-driven native app suite.',
+        features: [
+            'Native Rust client for RuneOS',
+            'Keyboard-driven, fits the OS design language',
+            'Integrated with the RuneOS rendering stack'
+        ],
+        tech: 'Rust · native UI · audio',
+        github: 'https://github.com/camdenconrad/nocturne'
     }
 ];
 
