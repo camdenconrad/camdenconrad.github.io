@@ -196,6 +196,75 @@ const projectsData = [
     },
     {
         section: 'systems', code: 'OS-02',
+        title: 'Seance',
+        short: 'A fail-safe network control plane, in staged eBPF layers, slowly replacing NetworkManager.',
+        image: 'images/seance/seance.webp',
+        tags: ['Rust', 'eBPF', 'Networking', 'cgroup_skb', 'Fail-safe'],
+        description: 'Seance is a network control plane I am building to replace NetworkManager, designed in staged safety layers. The S0 control plane installs a single inert beacon rule at boot, ticks a fixed loop, runs an invariant pass over the rule table, and proves its own liveness on two independent channels — and deliberately never repairs anything it observes, so the teardown path can always clean up after it even when the daemon is "a corpse or a liar." Above it, an eBPF cgroup_skb classifier puts Rust directly in the egress packet path, and a fanotify canary watchdog watches for tampering. The whole thing is engineered fail-safe-first: every rule is something the panic/teardown path can undo without the daemon\'s cooperation.',
+        features: [
+            'Staged design: S0 control plane → eBPF egress classifier → canary watchdog',
+            'eBPF cgroup_skb classifier — Rust in the egress packet path',
+            'S0 proves liveness on two independent channels (sd_notify + heartbeat)',
+            'Never repairs what it observes — teardown works without its cooperation',
+            'fanotify canary watchdog, observe-only',
+            'Fail-safe-first: built before anything that could break the box exists'
+        ],
+        tech: 'Rust · eBPF (aya) · cgroup_skb · fanotify · netlink',
+        github: 'https://github.com/camdenconradsms/rune-sched'
+    },
+    {
+        section: 'systems', code: 'OS-03',
+        title: 'glyph',
+        short: 'A verbose pacman + yay (AUR) front-end that prints the exact command it runs — so it teaches as it goes.',
+        image: 'images/glyph/glyph.webp',
+        tags: ['Rust', 'CLI', 'Arch / pacman', 'AUR', 'RuneOS'],
+        description: 'glyph is the RuneOS package manager — a friendly, verbose front-end over pacman (official repos) and yay (AUR). It always announces what it is doing and prints the exact underlying command before it runs, so "glyph install firefox" or "glyph update discord" is self-documenting: you learn pacman and yay as you go, and there is never any mystery about what glyph did to your system. Official repos are resolved first, with a flag to force the AUR-only path.',
+        features: [
+            'Verbose front-end over pacman + yay (AUR)',
+            'Prints the exact underlying command before running it',
+            'Self-documenting — teaches pacman/yay as you use it',
+            'Official repos first, with an --aur override',
+            'Fast, single Rust binary'
+        ],
+        tech: 'Rust · CLI · pacman · yay / AUR',
+        github: 'https://github.com/camdenconradsms/livewall-studio'
+    },
+    {
+        section: 'systems', code: 'OS-04',
+        title: 'murder',
+        short: 'A safer kill that refuses to slay session-critical processes unless you perform the --ritual.',
+        image: 'images/murder/murder.webp',
+        tags: ['Rust', 'CLI', 'Linux', 'RuneOS'],
+        description: 'murder is Rune\'s kill: it signals processes by PID or exact name (pkill -x style), but wards the handful of processes that would tear down the live desktop session — the compositor, the wallpaper engine, the dock — and refuses to touch them unless you pass --ritual. It exists because "pkill -x rune" is an instant sign-out and "pkill -f livewall-studio" is a black screen; murder makes the safe thing the default and the dangerous thing deliberate.',
+        features: [
+            'Kill by PID or exact comm name (pkill -x style)',
+            'Wards session-critical processes (compositor, wallpaper, dock)',
+            'Refuses to kill warded processes without --ritual',
+            'Respects an explicitly named signal — never escalates',
+            'Small, fast Rust binary'
+        ],
+        tech: 'Rust · CLI · Linux signals',
+        github: 'https://github.com/camdenconradsms/livewall-studio'
+    },
+    {
+        section: 'systems', code: 'OS-05',
+        title: 'livewall-studio',
+        short: 'A native Rust + wgpu live-wallpaper engine rendering on the Wayland background layer — the living wallpaper I daily-drive.',
+        image: 'images/livewall/fallpark.webp',
+        tags: ['Rust', 'wgpu', 'Wayland', 'layer-shell', 'Tauri'],
+        description: 'livewall-studio authors, schedules, and switches whole desktop "environments" — a live wallpaper plus a day/night schedule with effects like rain fading in and out through the day. The wallpaper is rendered by a native Rust + wgpu engine I wrote that draws directly on the Wayland background layer via layer-shell, rather than going through the desktop\'s QML compositor, so I own the renderer end to end. A Tauri GUI authors environments and previews them live through the same engine. It grew out of "fallpark" — the lofi autumn-park scene, with full day/night gradings, that I daily-drive.',
+        features: [
+            'Native Rust + wgpu engine drawing on the Wayland background layer (layer-shell)',
+            'Owns the renderer end to end — not the desktop\'s QML',
+            'Environments = live wallpaper + day/night schedule + effects (rain, etc.)',
+            'Full time-of-day gradings (dawn → golden → dusk → night)',
+            'Tauri authoring GUI with live preview through the same engine'
+        ],
+        tech: 'Rust · wgpu · Wayland layer-shell · Tauri',
+        github: 'https://github.com/camdenconradsms/livewall-studio'
+    },
+    {
+        section: 'systems', code: 'OS-06',
         title: 'Coven',
         short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
         image: 'images/coven/mission-control.webp',
@@ -284,6 +353,40 @@ const projectsData = [
     // ===== Tools & ML =====
     {
         section: 'tools', code: 'TOOL-01',
+        title: 'Weather',
+        short: 'Native weather + live-radar desktop app — decodes NEXRAD Level III radar from binary and runs its own ML nowcast.',
+        image: 'images/weather/radar.webp',
+        tags: ['Rust', 'egui / wgpu', 'NEXRAD radar', 'ML nowcast', 'SQLite'],
+        description: 'Weather is a native egui/eframe desktop app that decodes NEXRAD Level III radar straight from its binary product format — fetch, decode, colorize, and render onto a slippy map — alongside forecasts from Open-Meteo and NWS, with everything persisted to SQLite. It also runs a short-range ML nowcast using a from-scratch sequence-prediction model (a Rust port of my TensorSequenceTree), extrapolating recent conditions a few steps forward with a confidence estimate. Binary format parsing, mapping, and ML in one self-contained Rust binary.',
+        features: [
+            'Decodes NEXRAD Level III radar from the raw binary product format',
+            'Colorizes and renders radar onto a slippy map',
+            'Forecasts from Open-Meteo and NWS; history persisted to SQLite',
+            'Short-range ML nowcast via a from-scratch sequence predictor',
+            'Native egui/eframe app on wgpu, async workers on tokio'
+        ],
+        tech: 'Rust · egui / wgpu · tokio · rusqlite · NEXRAD L3',
+        private: true
+    },
+    {
+        section: 'tools', code: 'TOOL-02',
+        title: 'WatchTower',
+        short: 'A from-scratch sequence-memory and prediction engine with a tiered Postgres/pgvector memory backbone.',
+        image: 'images/watchtower/watchtower.webp',
+        tags: ['Rust', 'Sequence model', 'pgvector', 'Embeddings', 'Memory'],
+        description: 'WatchTower is a parametric memory-and-prediction model ("TensorSequenceTree") that learns sequences of dense float vectors and predicts their continuations — blending n-gram statistics over quantized tensors, a transition graph with self-loop detection, physics-style delta/velocity regression, and prioritized experience replay, with 16-bit quantized storage to stay compact. Around it I built a tiered hot/cold memory store (in-memory plus Postgres/pgvector) with embeddings, ingestion, and retrieval, so other apps can use it as long-term vector memory. The same model, ported to Rust, is what powers the nowcast in my Weather app.',
+        features: [
+            'Learns sequences of tensors and predicts continuations — from scratch',
+            'n-gram stats, transition graph, delta/velocity regression, replay',
+            '16-bit quantized tensor storage for compact memory',
+            'Tiered hot/cold vector memory: in-memory + Postgres/pgvector',
+            'Embeddings, ingestion, and retrieval — a memory backbone for other apps'
+        ],
+        tech: 'Rust · Postgres / pgvector · embeddings · sequence modeling',
+        private: true
+    },
+    {
+        section: 'tools', code: 'TOOL-03',
         title: 'repliKate',
         short: 'High-velocity continuous-learning ML engine — adapts online without pretraining at ~100 MB RAM.',
         image: 'images/replikate/online-learning.webp',
@@ -301,7 +404,24 @@ const projectsData = [
         github: 'https://github.com/camdenconrad/repliKate'
     },
     {
-        section: 'tools', code: 'TOOL-02',
+        section: 'tools', code: 'TOOL-04',
+        title: 'WhoAmI',
+        short: 'A high-dimensional personality model that keeps nuance and contradiction instead of bucketing into Big Five.',
+        image: 'images/whoami/whoami.webp',
+        tags: ['C#', 'Avalonia', 'Vector modeling', 'Personality'],
+        description: 'WhoAmI is a personality-assessment engine that avoids Big-Five bucketing by representing people as sparse, high-dimensional trait vectors. It tracks co-activation — so "opposite" traits can coexist — keeps context-dependent profiles (Work, Social, Stress) instead of averaging them away, and treats contradictions as signal rather than noise. It outputs both a familiar MBTI-style type and a full nuanced vector profile, in a cross-platform Avalonia desktop app.',
+        features: [
+            'Sparse multi-hot trait vectors — no Big-Five bucketing',
+            'Co-activation tracking: contradictory traits can coexist',
+            'Context-specific profiles (Work / Social / Stress), not global averages',
+            'Dual output: MBTI-style type + high-dimensional profile',
+            'Cross-platform Avalonia desktop GUI'
+        ],
+        tech: 'C# · .NET · Avalonia · vector modeling',
+        github: 'https://github.com/camdenconrad/WhoAmI'
+    },
+    {
+        section: 'tools', code: 'TOOL-05',
         title: 'RustRent',
         short: 'Rental-market analysis tool in Rust, with a job-market-listings variant in progress.',
         image: 'images/rustrent/rent-analysis.webp',
@@ -316,7 +436,7 @@ const projectsData = [
         private: true
     },
     {
-        section: 'tools', code: 'TOOL-03',
+        section: 'tools', code: 'TOOL-06',
         title: 'Nocturne',
         short: 'Native Rust music client for RuneOS — part of the OS app suite.',
         image: 'images/nocturne/player.webp',
