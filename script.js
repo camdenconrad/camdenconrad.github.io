@@ -283,18 +283,18 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-07',
         title: 'murder',
-        short: 'A safer kill that refuses to slay session-critical processes unless you perform the --ritual.',
+        short: 'Kill anything by fuzzy name — "murder covn" knows you mean Coven, finds every trace, and ends it. No PIDs, no flags, no pkill trivia.',
         image: 'images/murder/murder.webp',
         tags: ['Rust', 'CLI', 'Linux', 'RuneOS'],
-        description: 'murder is Rune\'s kill: it signals processes by PID or exact name (pkill -x style), but wards the handful of processes that would tear down the live desktop session — the compositor, the wallpaper engine, the dock — and refuses to touch them unless you pass --ritual. It exists because "pkill -x rune" is an instant sign-out and "pkill -f livewall-studio" is a black screen; murder makes the safe thing the default and the dangerous thing deliberate.',
+        description: 'murder is Rune\'s kill, built around one idea: you should not have to remember pkill -x versus pkill -f, hunt down a PID, or even spell the name right. You just say "murder covn" and it knows you meant Coven — it fuzzy-matches the process, finds every trace of it (all the matching processes, not just one), and ends them. No flags to memorize, no variants, no PID lookup. As a safety net it also wards the handful of processes that would tear down your live session — the compositor, the wallpaper engine, the dock — so a fat-fingered kill can\'t accidentally sign you out; you override with --ritual when you actually mean it.',
         features: [
-            'Kill by PID or exact comm name (pkill -x style)',
-            'Wards session-critical processes (compositor, wallpaper, dock)',
-            'Refuses to kill warded processes without --ritual',
-            'Respects an explicitly named signal — never escalates',
-            'Small, fast Rust binary'
+            'Fuzzy name matching — "murder covn" resolves to Coven, typo and all',
+            'Finds and ends every trace of a process, not a single PID',
+            'No PIDs, no flags, no remembering pkill -x / -f variants',
+            'Wards session-critical processes (compositor, wallpaper, dock) unless --ritual',
+            'One small, fast Rust binary'
         ],
-        tech: 'Rust · CLI · Linux signals',
+        tech: 'Rust · CLI · Linux · fuzzy process matching',
         github: 'https://github.com/camdenconradsms/livewall-studio'
     },
 
