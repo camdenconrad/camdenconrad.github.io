@@ -190,7 +190,6 @@ const projectsData = [
         github: 'https://github.com/camdenconrad/rune-runtime',
         links: [
             { label: 'rune-net', url: 'https://github.com/camdenconrad/rune-net' },
-            { label: 'runic', url: 'https://github.com/camdenconrad/runic' },
             { label: 'rune-sched', url: 'https://github.com/camdenconradsms/rune-sched' }
         ]
     },
@@ -214,6 +213,24 @@ const projectsData = [
     },
     {
         section: 'systems', code: 'OS-03',
+        title: 'Runic',
+        short: 'A from-scratch Rust audio server replacing PipeWire — bit-perfect playback, pro low latency, and PipeWire wire-compat.',
+        image: 'images/runic/runic.webp',
+        tags: ['Rust', 'Audio', 'ALSA', 'Real-time', 'PipeWire-compat'],
+        description: 'Runic is a from-scratch Rust audio server for RuneOS built to replace PipeWire: bit-perfect / hi-res playback, pro-grade low latency, Bluetooth, and screen sharing, plus a scheduling contract with rune-sched that a portable audio server can\'t have. Its timing substrate is a hand-written second-order DLL (delay-locked loop) that paces a bit-perfect ALSA sink with microsecond-level error and zero xruns; on top sit a graph engine (activation records + an eventfd cascade), a mixer and resampler, a mic effect chain that routes mic → fx → every app, and a Bluetooth sink. Crucially it speaks PipeWire\'s native wire protocol, so OBS and browsers screen-share against it unmodified.',
+        features: [
+            'Bit-perfect / hi-res playback with no unwanted resampling',
+            'Second-order DLL timing substrate — µs-level clock error, zero xruns',
+            'Graph engine: activation records + eventfd cascade',
+            'Mixer, resampler, ALSA + Bluetooth sinks',
+            'Mic effect chain: mic → fx → every app',
+            'Speaks PipeWire\'s native protocol — OBS / browser screen-share unmodified'
+        ],
+        tech: 'Rust · ALSA · real-time audio · PipeWire protocol',
+        github: 'https://github.com/camdenconrad/runic'
+    },
+    {
+        section: 'systems', code: 'OS-04',
         title: 'glyph',
         short: 'A verbose pacman + yay (AUR) front-end that prints the exact command it runs — so it teaches as it goes.',
         image: 'images/glyph/glyph.webp',
@@ -230,7 +247,7 @@ const projectsData = [
         github: 'https://github.com/camdenconradsms/livewall-studio'
     },
     {
-        section: 'systems', code: 'OS-04',
+        section: 'systems', code: 'OS-05',
         title: 'murder',
         short: 'A safer kill that refuses to slay session-critical processes unless you perform the --ritual.',
         image: 'images/murder/murder.webp',
@@ -247,7 +264,7 @@ const projectsData = [
         github: 'https://github.com/camdenconradsms/livewall-studio'
     },
     {
-        section: 'systems', code: 'OS-05',
+        section: 'systems', code: 'OS-06',
         title: 'livewall-studio',
         short: 'A native Rust + wgpu live-wallpaper engine rendering on the Wayland background layer — the living wallpaper I daily-drive.',
         image: 'images/livewall/fallpark.webp',
@@ -264,7 +281,7 @@ const projectsData = [
         github: 'https://github.com/camdenconradsms/livewall-studio'
     },
     {
-        section: 'systems', code: 'OS-06',
+        section: 'systems', code: 'OS-07',
         title: 'Coven',
         short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
         image: 'images/coven/mission-control.webp',
