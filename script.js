@@ -195,24 +195,6 @@ const projectsData = [
     },
     {
         section: 'systems', code: 'OS-02',
-        title: 'Seance',
-        short: 'A fail-safe network control plane, in staged eBPF layers, slowly replacing NetworkManager.',
-        image: 'images/seance/seance.webp',
-        tags: ['Rust', 'eBPF', 'Networking', 'cgroup_skb', 'Fail-safe'],
-        description: 'Seance is a network control plane I am building to replace NetworkManager, designed in staged safety layers. The S0 control plane installs a single inert beacon rule at boot, ticks a fixed loop, runs an invariant pass over the rule table, and proves its own liveness on two independent channels — and deliberately never repairs anything it observes, so the teardown path can always clean up after it even when the daemon is "a corpse or a liar." Above it, an eBPF cgroup_skb classifier puts Rust directly in the egress packet path, and a fanotify canary watchdog watches for tampering. The whole thing is engineered fail-safe-first: every rule is something the panic/teardown path can undo without the daemon\'s cooperation.',
-        features: [
-            'Staged design: S0 control plane → eBPF egress classifier → canary watchdog',
-            'eBPF cgroup_skb classifier — Rust in the egress packet path',
-            'S0 proves liveness on two independent channels (sd_notify + heartbeat)',
-            'Never repairs what it observes — teardown works without its cooperation',
-            'fanotify canary watchdog, observe-only',
-            'Fail-safe-first: built before anything that could break the box exists'
-        ],
-        tech: 'Rust · eBPF (aya) · cgroup_skb · fanotify · netlink',
-        github: 'https://github.com/camdenconradsms/rune-sched'
-    },
-    {
-        section: 'systems', code: 'OS-03',
         title: 'Runic',
         short: 'A from-scratch Rust audio server replacing PipeWire — bit-perfect playback, pro low latency, and PipeWire wire-compat.',
         image: 'images/runic/runic.webp',
@@ -230,41 +212,42 @@ const projectsData = [
         github: 'https://github.com/camdenconrad/runic'
     },
     {
-        section: 'systems', code: 'OS-04',
-        title: 'glyph',
-        short: 'A verbose pacman + yay (AUR) front-end that prints the exact command it runs — so it teaches as it goes.',
-        image: 'images/glyph/glyph.webp',
-        tags: ['Rust', 'CLI', 'Arch / pacman', 'AUR', 'RuneOS'],
-        description: 'glyph is the RuneOS package manager — a friendly, verbose front-end over pacman (official repos) and yay (AUR). It always announces what it is doing and prints the exact underlying command before it runs, so "glyph install firefox" or "glyph update discord" is self-documenting: you learn pacman and yay as you go, and there is never any mystery about what glyph did to your system. Official repos are resolved first, with a flag to force the AUR-only path.',
+        section: 'systems', code: 'OS-03',
+        title: 'Seance',
+        short: 'A fail-safe network control plane, in staged eBPF layers, slowly replacing NetworkManager.',
+        image: 'images/seance/seance.webp',
+        tags: ['Rust', 'eBPF', 'Networking', 'cgroup_skb', 'Fail-safe'],
+        description: 'Seance is a network control plane I am building to replace NetworkManager, designed in staged safety layers. The S0 control plane installs a single inert beacon rule at boot, ticks a fixed loop, runs an invariant pass over the rule table, and proves its own liveness on two independent channels — and deliberately never repairs anything it observes, so the teardown path can always clean up after it even when the daemon is "a corpse or a liar." Above it, an eBPF cgroup_skb classifier puts Rust directly in the egress packet path, and a fanotify canary watchdog watches for tampering. The whole thing is engineered fail-safe-first: every rule is something the panic/teardown path can undo without the daemon\'s cooperation.',
         features: [
-            'Verbose front-end over pacman + yay (AUR)',
-            'Prints the exact underlying command before running it',
-            'Self-documenting — teaches pacman/yay as you use it',
-            'Official repos first, with an --aur override',
-            'Fast, single Rust binary'
+            'Staged design: S0 control plane → eBPF egress classifier → canary watchdog',
+            'eBPF cgroup_skb classifier — Rust in the egress packet path',
+            'S0 proves liveness on two independent channels (sd_notify + heartbeat)',
+            'Never repairs what it observes — teardown works without its cooperation',
+            'fanotify canary watchdog, observe-only',
+            'Fail-safe-first: built before anything that could break the box exists'
         ],
-        tech: 'Rust · CLI · pacman · yay / AUR',
-        github: 'https://github.com/camdenconradsms/livewall-studio'
+        tech: 'Rust · eBPF (aya) · cgroup_skb · fanotify · netlink',
+        github: 'https://github.com/camdenconradsms/rune-sched'
+    },
+    {
+        section: 'systems', code: 'OS-04',
+        title: 'Coven',
+        short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
+        image: 'images/coven/mission-control.webp',
+        tags: ['Rust', 'Orchestration', 'Postgres / pgvector', 'GitHub API'],
+        description: 'Coven is a Rune-native mission-control application that orchestrates multiple parallel Claude Code sessions per project. It integrates with GitHub issues and PRs, runs an adversarial red-team review stage where Codex and Gemini review diffs against each other, keeps a Postgres + pgvector memory, and switches models based on budget. A personal tool for coordinating several automated development workflows at once.',
+        features: [
+            'Orchestrates multiple parallel Claude Code sessions per project',
+            'GitHub issue / PR integration',
+            'Adversarial red-team review — Codex + Gemini reviewing diffs',
+            'Postgres + pgvector long-term memory',
+            'Budget-aware model switching'
+        ],
+        tech: 'Rust · Postgres · pgvector · LLM orchestration',
+        private: true
     },
     {
         section: 'systems', code: 'OS-05',
-        title: 'murder',
-        short: 'A safer kill that refuses to slay session-critical processes unless you perform the --ritual.',
-        image: 'images/murder/murder.webp',
-        tags: ['Rust', 'CLI', 'Linux', 'RuneOS'],
-        description: 'murder is Rune\'s kill: it signals processes by PID or exact name (pkill -x style), but wards the handful of processes that would tear down the live desktop session — the compositor, the wallpaper engine, the dock — and refuses to touch them unless you pass --ritual. It exists because "pkill -x rune" is an instant sign-out and "pkill -f livewall-studio" is a black screen; murder makes the safe thing the default and the dangerous thing deliberate.',
-        features: [
-            'Kill by PID or exact comm name (pkill -x style)',
-            'Wards session-critical processes (compositor, wallpaper, dock)',
-            'Refuses to kill warded processes without --ritual',
-            'Respects an explicitly named signal — never escalates',
-            'Small, fast Rust binary'
-        ],
-        tech: 'Rust · CLI · Linux signals',
-        github: 'https://github.com/camdenconradsms/livewall-studio'
-    },
-    {
-        section: 'systems', code: 'OS-06',
         title: 'livewall-studio',
         short: 'A native Rust + wgpu live-wallpaper engine rendering on the Wayland background layer — the living wallpaper I daily-drive.',
         image: 'images/livewall/fallpark.webp',
@@ -281,21 +264,38 @@ const projectsData = [
         github: 'https://github.com/camdenconradsms/livewall-studio'
     },
     {
-        section: 'systems', code: 'OS-07',
-        title: 'Coven',
-        short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
-        image: 'images/coven/mission-control.webp',
-        tags: ['Rust', 'Orchestration', 'Postgres / pgvector', 'GitHub API'],
-        description: 'Coven is a Rune-native mission-control application that orchestrates multiple parallel Claude Code sessions per project. It integrates with GitHub issues and PRs, runs an adversarial red-team review stage where Codex and Gemini review diffs against each other, keeps a Postgres + pgvector memory, and switches models based on budget. A personal tool for coordinating several automated development workflows at once.',
+        section: 'systems', code: 'OS-06',
+        title: 'glyph',
+        short: 'A fast package manager that unifies official repos and the AUR under one command — and prints exactly what it runs.',
+        image: 'images/glyph/glyph.webp',
+        tags: ['Rust', 'CLI', 'Arch / pacman', 'AUR', 'RuneOS'],
+        description: 'glyph is the RuneOS package manager — a fast, verbose front-end that unifies pacman (official repos) and yay (AUR) behind a single command. It always announces what it is doing and prints the exact underlying command before it runs, so there is never any mystery about what glyph did to your system: no black-box wrapper, just one fast, explicit interface over both package sources. Official repos are resolved first, with a flag to force the AUR-only path.',
         features: [
-            'Orchestrates multiple parallel Claude Code sessions per project',
-            'GitHub issue / PR integration',
-            'Adversarial red-team review — Codex + Gemini reviewing diffs',
-            'Postgres + pgvector long-term memory',
-            'Budget-aware model switching'
+            'One command over both official repos (pacman) and the AUR (yay)',
+            'Prints the exact underlying command before running it — full transparency',
+            'Verbose, explicit output; never a black box',
+            'Official repos first, with an --aur override',
+            'Fast, single Rust binary'
         ],
-        tech: 'Rust · Postgres · pgvector · LLM orchestration',
-        private: true
+        tech: 'Rust · CLI · pacman · yay / AUR',
+        github: 'https://github.com/camdenconradsms/livewall-studio'
+    },
+    {
+        section: 'systems', code: 'OS-07',
+        title: 'murder',
+        short: 'A safer kill that refuses to slay session-critical processes unless you perform the --ritual.',
+        image: 'images/murder/murder.webp',
+        tags: ['Rust', 'CLI', 'Linux', 'RuneOS'],
+        description: 'murder is Rune\'s kill: it signals processes by PID or exact name (pkill -x style), but wards the handful of processes that would tear down the live desktop session — the compositor, the wallpaper engine, the dock — and refuses to touch them unless you pass --ritual. It exists because "pkill -x rune" is an instant sign-out and "pkill -f livewall-studio" is a black screen; murder makes the safe thing the default and the dangerous thing deliberate.',
+        features: [
+            'Kill by PID or exact comm name (pkill -x style)',
+            'Wards session-critical processes (compositor, wallpaper, dock)',
+            'Refuses to kill warded processes without --ritual',
+            'Respects an explicitly named signal — never escalates',
+            'Small, fast Rust binary'
+        ],
+        tech: 'Rust · CLI · Linux signals',
+        github: 'https://github.com/camdenconradsms/livewall-studio'
     },
 
     // ===== Shipped Games =====
@@ -324,10 +324,6 @@ const projectsData = [
         title: 'Bellatrix',
         short: 'A from-scratch WGSL path tracer with a custom voxel modeling system on top — no game engine underneath.',
         image: 'images/bellatrix/room.webp',
-        gallery: [
-            'images/bellatrix/room.webp', 'images/bellatrix/editor-ui.webp', 'images/bellatrix/layers-ai.webp',
-            'images/bellatrix/scene-3.webp', 'images/bellatrix/scene-10.webp', 'images/bellatrix/scene-a.webp', 'images/bellatrix/lighting.webp'
-        ],
         tags: ['Rust', 'wgpu', 'Path tracing', 'WGSL', 'PBR'],
         description: 'Bellatrix is a 3D scene editor built on a real-time renderer I wrote entirely from scratch — no game engine, and even the UI is a custom immediate-mode GUI rendered directly in wgpu with no framework underneath. Scenes are grid-snapped faces (full / half / quarter) lit by a hand-written path tracer: soft shadows, bounce global illumination, reflections, and temporal accumulation, with HDR image-based environment lighting and physically-based metallic/roughness materials. A denoiser, multi-pass bloom, and click-to-focus depth of field finish each frame. On the editing side there are layers with per-layer materials and visibility, full undo/redo, and a custom project format that stores 20,000+ faces at roughly 2 MB. It is where most of my low-level graphics work lives — a physically-based renderer and the editor around it, built end to end.',
         features: [
@@ -422,6 +418,23 @@ const projectsData = [
     },
     {
         section: 'tools', code: 'TOOL-04',
+        title: 'RustRent',
+        short: 'A resilient rental-market scraper and analysis pipeline in Rust — engineered to get through aggressive anti-bot and rate-limit defenses.',
+        image: 'images/rustrent/rent-analysis.webp',
+        tags: ['Rust', 'Web scraping', 'Anti-bot', 'Async', 'Data'],
+        description: 'RustRent is a rental-market analysis tool in Rust — but the hard part was never the analysis, it was the scraping. Listing sites throw serious defenses at automated clients: fingerprinting, rate limits, bot detection, and markup that shifts under you. RustRent is built to get through all of it reliably — fingerprint-aware request pacing and rotation, careful session handling, and parsing resilient to sites changing — then turns the raw firehose into clean, queryable market data. A job-market-listings variant runs the same scraping engine against hiring data.',
+        features: [
+            'Resilient scraper that gets through aggressive anti-bot / rate-limit defenses',
+            'Fingerprint-aware request pacing, rotation, and session handling',
+            'Parsing that survives sites changing their markup',
+            'Turns a noisy market into clean, queryable data',
+            'Job-market-listings variant on the same engine'
+        ],
+        tech: 'Rust · async · web scraping · data pipeline',
+        private: true
+    },
+    {
+        section: 'tools', code: 'TOOL-05',
         title: 'WhoAmI',
         short: 'A high-dimensional personality model that keeps nuance and contradiction instead of bucketing into Big Five.',
         image: 'images/whoami/whoami.webp',
@@ -436,21 +449,6 @@ const projectsData = [
         ],
         tech: 'C# · .NET · Avalonia · vector modeling',
         github: 'https://github.com/camdenconrad/WhoAmI'
-    },
-    {
-        section: 'tools', code: 'TOOL-05',
-        title: 'RustRent',
-        short: 'Rental-market analysis tool in Rust, with a job-market-listings variant in progress.',
-        image: 'images/rustrent/rent-analysis.webp',
-        tags: ['Rust', 'Analysis', 'Data'],
-        description: 'RustRent is a rental-market analysis tool written in Rust, with a job-market-listings variant currently in progress. It\'s a compact, fast data pipeline for pulling apart a noisy market into something you can reason about.',
-        features: [
-            'Rental-market analysis in Rust',
-            'Fast, compact data pipeline',
-            'Job-market-listings variant in progress'
-        ],
-        tech: 'Rust · data analysis',
-        private: true
     },
     {
         section: 'tools', code: 'TOOL-06',
