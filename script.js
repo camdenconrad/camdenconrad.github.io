@@ -174,8 +174,8 @@ const projectsData = [
         section: 'systems', code: 'OS-01',
         title: 'RuneOS',
         short: 'A full custom, daily-driven Linux stack — packaged kernel, Smithay compositor, native Rust shell, ~30 daemons, custom scheduler.',
-        image: 'images/runeos/power.webp',
-        gallery: ['images/runeos/power.webp', 'images/runeos/desktop2.webp', 'images/runeos/sunset.webp'],
+        image: 'images/runeos/sunset.webp',
+        gallery: ['images/runeos/sunset.webp', 'images/runeos/power.webp', 'images/runeos/desktop2.webp'],
         tags: ['Rust', 'Wayland / Smithay', 'sched_ext', 'Linux', 'Compositor'],
         description: 'RuneOS is a full custom Linux stack that I build and daily-drive. It includes a packaged kernel (linux-rune, Manjaro-based), a Wayland compositor built on Smithay, a native Rust shell, a package manager, roughly 30 system daemons, a custom sched_ext scheduler, and a native application suite. Parts of it are written under deliberately strict, self-imposed coding rules. The app suite includes Luna (an iMessage client), Nocturne (a Spotify client), Cauldron (the IDE above), and Hallow (a browser fork).',
         features: [
