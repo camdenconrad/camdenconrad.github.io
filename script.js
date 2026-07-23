@@ -284,7 +284,7 @@ const projectsData = [
         section: 'tools', code: 'TOOL-02',
         title: 'repliKate',
         short: 'High-velocity continuous-learning ML engine — adapts online without pretraining at ~100 MB RAM.',
-        visual: 'replikate',
+        image: 'images/replikate/online-learning.webp',
         tags: ['C#', 'ILGPU', 'Online learning', 'GPU'],
         description: 'repliKate is a high-velocity continuous-learning ML engine that adapts without pretraining, runs thread-safe online learning at roughly 100 MB of RAM, and uses GPU acceleration through ILGPU. I\'ve applied it to a chess AI (MCTS), a top-down-movement game AI (A* pathfinding and bullet-dodging), and ERA5 / NASA POWER weather prediction, and benchmarked it against LSTM and Transformer baselines.',
         features: [
@@ -302,7 +302,7 @@ const projectsData = [
         section: 'tools', code: 'TOOL-03',
         title: 'RustRent',
         short: 'Rental-market analysis tool in Rust, with a job-market-listings variant in progress.',
-        visual: 'rustrent',
+        image: 'images/rustrent/rent-analysis.webp',
         tags: ['Rust', 'Analysis', 'Data'],
         description: 'RustRent is a rental-market analysis tool written in Rust, with a job-market-listings variant currently in progress. It\'s a compact, fast data pipeline for pulling apart a noisy market into something you can reason about.',
         features: [
