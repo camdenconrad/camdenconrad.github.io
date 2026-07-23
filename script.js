@@ -318,7 +318,7 @@ const projectsData = [
         title: 'Nocturne',
         short: 'Native Rust music client for RuneOS — part of the OS app suite.',
         image: 'images/nocturne/player.webp',
-        gallery: ['images/nocturne/player.webp', 'images/nocturne/player-1.webp', 'images/nocturne/player-2.webp'],
+        gallery: ['images/nocturne/player.webp', 'images/nocturne/player-2.webp'],
         tags: ['Rust', 'Wayland', 'Audio', 'Native UI'],
         description: 'Nocturne is a native Rust music client built for RuneOS — a clean, keyboard-driven player that fits the OS\'s design language and rendering stack. A small piece of the daily-driven native app suite.',
         features: [
