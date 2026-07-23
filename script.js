@@ -137,20 +137,20 @@ const projectsData = [
         section: 'aerospace', code: 'FSW-02',
         title: 'Besom',
         kicker: 'Deterministic NASA cFS harness',
-        stats: 'Rust · Apache-2.0 · byte-identical telemetry',
+        stats: 'Rust · cFS software bus (CI_LAB / TO_LAB) · byte-identical telemetry',
         short: 'Deterministic simulation harness for NASA cFS — identical scenarios produce byte-identical telemetry.',
         image: 'images/besom/ground-station.webp',
-        tags: ['Rust', 'Apache-2.0', 'cFS / cFE', 'Determinism', 'Ground station'],
-        description: 'Besom is an open-source deterministic simulation harness for NASA\'s core Flight System (cFS). It runs real, unmodified cFE flight software but owns the clock: identical scenarios produce byte-identical telemetry, which supports reproducible regression testing — something NOS3-style real-time simulators aren\'t built for. Besom propagates a two-body orbit in lockstep with the software under test and doubles as a ground station for command and telemetry.',
+        tags: ['Rust', 'Apache-2.0', 'cFS / cFE', 'Determinism', 'Software bus'],
+        description: 'Besom is an open-source deterministic simulation harness for NASA\'s core Flight System (cFS). It runs real, unmodified cFE flight software but owns the clock: identical scenarios produce byte-identical telemetry, which supports reproducible regression testing — something NOS3-style real-time simulators aren\'t built for. Besom propagates a two-body orbit in lockstep with the software under test and doubles as a ground station: it publishes simulated vehicle state on the cFS software bus and drives command ingest and telemetry output through CI_LAB and TO_LAB over UDP, so real flight apps consume it unmodified.',
         features: [
             'Runs real, unmodified cFE flight software',
             'Owns the clock — identical scenarios → byte-identical telemetry',
             'Supports reproducible regression testing of flight software',
             'Propagates a two-body orbit in lockstep with the software',
-            'Doubles as a ground station for commanding and telemetry',
+            'Ground station on the cFS software bus — CI_LAB commanding, TO_LAB telemetry (UDP)',
             'Open source, Apache-2.0'
         ],
-        tech: 'Rust · cFS / cFE · deterministic simulation · Apache-2.0',
+        tech: 'Rust · cFS / cFE · software bus (CI_LAB / TO_LAB) · Apache-2.0',
         github: 'https://github.com/camdenconrad/besom'
     },
     {
@@ -161,16 +161,15 @@ const projectsData = [
         short: 'GPU-rendered Rust IDE that enforces NASA/JPL coding standards as live, save-time diagnostics.',
         visual: 'cauldron',
         tags: ['Rust', 'wgpu', 'JPL C Standard', 'Power of Ten', 'Static analysis'],
-        description: 'Cauldron is a GPU-rendered (wgpu) Rust IDE that checks selected NASA/JPL coding rules — from the Power of Ten and the JPL C coding standard — as live, save-time diagnostics. Beyond typical editor diagnostics, it performs whole-project call-graph analysis and recursion detection, replicating that class of cFS CI check locally so violations surface the moment you save rather than in a remote pipeline.',
+        description: 'Cauldron is a GPU-rendered (wgpu) Rust IDE that checks selected NASA/JPL coding rules — from the Power of Ten and the JPL C coding standard — as live, save-time diagnostics. Beyond typical editor diagnostics, it performs whole-project call-graph analysis and recursion detection, and it runs the real cFE contribution CI gates locally (clang-format drift, commit conventions, doxygen, unit-test coupling), folding clang-tidy, cppcheck, and a custom tree-sitter analyzer into one diagnostics model — so violations surface the moment you save rather than in a remote pipeline.',
         features: [
             'GPU-rendered editor built on wgpu',
-            'Checks Power of Ten and JPL C coding rules',
-            'Live, save-time diagnostics',
-            'Whole-project call-graph analysis beyond typical editor diagnostics',
-            'Recursion detection across the full project',
-            'Replicates cFS CI checks locally'
+            'Checks Power of Ten and JPL C coding rules as you save',
+            'Whole-project call-graph analysis + recursion detection',
+            'Runs the real cFE contribution CI gates locally (clang-format, commit conventions, unit-test coupling)',
+            'Unifies clang-tidy, cppcheck, and a custom tree-sitter analyzer into one diagnostics model'
         ],
-        tech: 'Rust · wgpu · static analysis · call-graph analysis',
+        tech: 'Rust · wgpu · tree-sitter · clang-tidy / cppcheck · static analysis',
         github: 'https://github.com/camdenconrad/cauldron',
         image: 'images/cauldron/ide.webp'
     },
