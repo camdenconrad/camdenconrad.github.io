@@ -198,7 +198,7 @@ const projectsData = [
         section: 'systems', code: 'OS-02',
         title: 'Coven',
         short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
-        visual: 'coven',
+        image: 'images/coven/mission-control.webp',
         tags: ['Rust', 'Orchestration', 'Postgres / pgvector', 'GitHub API'],
         description: 'Coven is a Rune-native mission-control application that orchestrates multiple parallel Claude Code sessions per project. It integrates with GitHub issues and PRs, runs an adversarial red-team review stage where Codex and Gemini review diffs against each other, keeps a Postgres + pgvector memory, and switches models based on budget. A personal tool for coordinating several automated development workflows at once.',
         features: [
