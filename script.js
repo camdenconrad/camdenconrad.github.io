@@ -242,17 +242,18 @@ const projectsData = [
             'images/bellatrix/room.webp', 'images/bellatrix/editor-ui.webp', 'images/bellatrix/layers-ai.webp',
             'images/bellatrix/scene-3.webp', 'images/bellatrix/scene-10.webp', 'images/bellatrix/scene-a.webp', 'images/bellatrix/lighting.webp'
         ],
-        tags: ['Rust', 'wgpu', 'Path tracing', 'WGSL', 'Renderer'],
-        description: 'Bellatrix is a voxel modeling tool built on a rendering engine I wrote entirely from scratch — no game engine underneath. The renderer is a real WGSL path tracer running on wgpu: progressive accumulation, a denoiser, soft shadows, bloom, and depth of field, all hand-written. On top of it sits a custom face-primitive modeling system — ghost placement, depth testing, five selection modes, full undo/redo — with a proprietary format that stores 20,000+ faces at roughly 2 MB. It is where most of my low-level graphics work lives: a physically-based renderer and the editor around it, built end to end.',
+        tags: ['Rust', 'wgpu', 'Path tracing', 'WGSL', 'PBR'],
+        description: 'Bellatrix is a 3D scene editor built on a real-time renderer I wrote entirely from scratch — no game engine, and even the UI is a custom immediate-mode GUI rendered directly in wgpu with no framework underneath. Scenes are grid-snapped faces (full / half / quarter) lit by a hand-written path tracer: soft shadows, bounce global illumination, reflections, and temporal accumulation, with HDR image-based environment lighting and physically-based metallic/roughness materials. A denoiser, multi-pass bloom, and click-to-focus depth of field finish each frame. On the editing side there are layers with per-layer materials and visibility, full undo/redo, and a custom project format that stores 20,000+ faces at roughly 2 MB. It is where most of my low-level graphics work lives — a physically-based renderer and the editor around it, built end to end.',
         features: [
             'From-scratch WGSL path tracer on wgpu — no engine',
-            'Progressive accumulation + denoiser for clean frames',
-            'Soft shadows, bloom, and depth-of-field passes',
-            'Custom face-primitive voxel modeling system',
-            'Ghost placement, depth testing, five selection modes, full undo/redo',
-            'Proprietary format: 20,000+ faces at ~2 MB'
+            'Bounce global illumination, soft shadows, reflections, temporal accumulation',
+            'HDR image-based environment lighting (.hdr / .exr)',
+            'PBR metallic/roughness materials with procedural texture + normal maps',
+            'Denoiser, multi-pass bloom, click-to-focus depth of field',
+            'Custom immediate-mode GUI rendered entirely in wgpu — no UI framework',
+            'Grid-snapped face editing, layers, undo/redo; ~20,000 faces at ~2 MB'
         ],
-        tech: 'Rust · wgpu · WGSL · path tracing · winit',
+        tech: 'Rust · wgpu · WGSL · path tracing · PBR',
         github: 'https://github.com/camdenconrad/Bellatrix'
     },
     {
