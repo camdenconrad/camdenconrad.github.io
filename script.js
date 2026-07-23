@@ -114,11 +114,13 @@ const projectsData = [
     {
         section: 'aerospace', code: 'FSW-01', flagship: true,
         title: 'Orbital',
-        short: 'High-fidelity solar-system simulator and deterministic trajectory solver — reproduces published mission launch windows from first principles.',
+        kicker: 'Astrodynamics engine',
+        stats: 'Rust · JPL DE440 (21 bodies) · Dormand–Prince 5(4) · 1PN relativity',
+        short: 'High-fidelity solar-system simulator and deterministic trajectory solver — reproduces real interplanetary launch windows (e.g. Mars 2020) from first principles.',
         image: 'images/orbital/porkchop.png',
         gallery: ['images/orbital/porkchop.png', 'images/orbital/hero.png'],
         tags: ['Rust', 'wgpu', 'Orbital mechanics', '1PN n-body', 'JPL DE440'],
-        description: 'Orbital is a from-scratch, high-fidelity solar-system simulator and deterministic trajectory solver — not a wrapper around GMAT or Nyx. It queries real JPL DE440 body states through ANISE across a 21-body catalog, then numerically propagates the spacecraft under Newtonian n-body plus first post-Newtonian (1PN) relativistic dynamics using an adaptive Dormand–Prince 5(4) integrator written as a pure function of its inputs — no wall clock, no threads, no randomness — so two runs on the same build are bit-for-bit reproducible. On top of that sits a deterministic beam-search trajectory solver with Lambert seeding and GPU porkchop (C3 / Δv) scans. Given only a departure window, it independently reproduces the Mars 2020 launch opportunity — matching departure date and launch energy to within a day and about 1% — and everything renders live in a wgpu 3D view. It\'s the clearest expression of where I want to be: mission design and GNC.',
+        description: 'Orbital is a from-scratch, high-fidelity solar-system simulator and deterministic trajectory solver, built from first principles rather than extending existing astrodynamics frameworks. It queries real JPL DE440 body states through ANISE across a 21-body catalog, then numerically propagates the spacecraft under Newtonian n-body plus first post-Newtonian (1PN) relativistic dynamics using an adaptive Dormand–Prince 5(4) integrator written as a pure function of its inputs — no wall clock, no threads, no randomness — so two runs on the same build are bit-for-bit reproducible. On top of that sits a deterministic beam-search trajectory solver with Lambert seeding and GPU porkchop (C3 / Δv) scans. Given only a departure window, it independently reproduces the Mars 2020 launch opportunity — matching departure date and launch energy to within a day and about 1% — and everything renders live in a wgpu 3D view. It\'s the clearest expression of where I want to be: mission design and GNC.',
         features: [
             'Real JPL DE440 body states via ANISE across a 21-body catalog',
             'Newtonian n-body + 1PN relativity — reproduces Mercury\'s ~43″/century perihelion advance',
@@ -134,6 +136,8 @@ const projectsData = [
     {
         section: 'aerospace', code: 'FSW-02',
         title: 'Besom',
+        kicker: 'Deterministic NASA cFS harness',
+        stats: 'Rust · Apache-2.0 · byte-identical telemetry',
         short: 'Deterministic simulation harness for NASA cFS — identical scenarios produce byte-identical telemetry.',
         image: 'images/besom/ground-station.webp',
         tags: ['Rust', 'Apache-2.0', 'cFS / cFE', 'Determinism', 'Ground station'],
@@ -152,6 +156,8 @@ const projectsData = [
     {
         section: 'aerospace', code: 'FSW-03',
         title: 'Cauldron',
+        kicker: 'Flight-software IDE',
+        stats: 'Rust · wgpu · whole-project call-graph analysis · live JPL-rule checks',
         short: 'GPU-rendered Rust IDE that enforces NASA/JPL coding standards as live, save-time diagnostics.',
         visual: 'cauldron',
         tags: ['Rust', 'wgpu', 'JPL C Standard', 'Power of Ten', 'Static analysis'],
@@ -173,6 +179,8 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-01',
         title: 'RuneOS',
+        kicker: 'Custom Linux operating system',
+        stats: '43 crates · packaged kernel · ~30 daemons · daily-driven',
         short: 'A full custom, daily-driven Linux stack — packaged kernel, Smithay compositor, native Rust shell, ~30 daemons, custom scheduler.',
         image: 'images/runeos/sunset.webp',
         gallery: ['images/runeos/sunset.webp', 'images/runeos/power.webp', 'images/runeos/desktop2.webp'],
@@ -187,7 +195,6 @@ const projectsData = [
             'Parts written under deliberately strict coding rules'
         ],
         tech: 'Rust · Smithay · Wayland · sched_ext · systems programming',
-        github: 'https://github.com/camdenconrad/rune-runtime',
         links: [
             { label: 'rune-net', url: 'https://github.com/camdenconrad/rune-net' },
             { label: 'rune-sched', url: 'https://github.com/camdenconradsms/rune-sched' }
@@ -196,6 +203,8 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-02',
         title: 'Runic',
+        kicker: 'Audio server · PipeWire replacement',
+        stats: 'Rust · ALSA · 2nd-order DLL clock · PipeWire-protocol compat',
         short: 'A from-scratch Rust audio server replacing PipeWire — bit-perfect playback, pro low latency, and PipeWire wire-compat.',
         image: 'images/runic/runic.webp',
         tags: ['Rust', 'Audio', 'ALSA', 'Real-time', 'PipeWire-compat'],
@@ -214,6 +223,8 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-03',
         title: 'Seance',
+        kicker: 'Network control plane',
+        stats: 'Rust · eBPF (aya) · fail-safe staged design',
         short: 'A fail-safe network control plane, in staged eBPF layers, slowly replacing NetworkManager.',
         image: 'images/seance/seance.webp',
         tags: ['Rust', 'eBPF', 'Networking', 'cgroup_skb', 'Fail-safe'],
@@ -232,6 +243,8 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-04',
         title: 'Coven',
+        kicker: 'AI agent orchestrator',
+        stats: 'Rust · Postgres/pgvector · parallel Claude sessions',
         short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
         image: 'images/coven/mission-control.webp',
         tags: ['Rust', 'Orchestration', 'Postgres / pgvector', 'GitHub API'],
@@ -249,6 +262,8 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-05',
         title: 'livewall-studio',
+        kicker: 'Live-wallpaper engine',
+        stats: 'Rust · wgpu · Wayland layer-shell',
         short: 'A native Rust + wgpu live-wallpaper engine rendering on the Wayland background layer — the living wallpaper I daily-drive.',
         image: 'images/livewall/fallpark.webp',
         tags: ['Rust', 'wgpu', 'Wayland', 'layer-shell', 'Tauri'],
@@ -266,6 +281,8 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-06',
         title: 'glyph',
+        kicker: 'Package manager',
+        stats: 'Rust · pacman + AUR · one transparent CLI',
         short: 'A fast package manager that unifies official repos and the AUR under one command — and prints exactly what it runs.',
         image: 'images/glyph/glyph.webp',
         tags: ['Rust', 'CLI', 'Arch / pacman', 'AUR', 'RuneOS'],
@@ -283,6 +300,8 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-07',
         title: 'murder',
+        kicker: 'Smart process killer',
+        stats: 'Rust · fuzzy match · session-safe',
         short: 'Kill anything by fuzzy name — "murder covn" knows you mean Coven, finds every trace, and ends it. No PIDs, no flags, no pkill trivia.',
         image: 'images/murder/murder.webp',
         tags: ['Rust', 'CLI', 'Linux', 'RuneOS'],
@@ -302,6 +321,8 @@ const projectsData = [
     {
         section: 'games', code: 'GAME-01',
         title: 'Axis Football 2026',
+        kicker: 'Shipped commercial game',
+        stats: 'Unity · 10,000+ players · 7.8× tool speedup',
         short: 'Shipped to PC/Xbox/PlayStation, 10,000+ players — zero-GC replay system and a 7.8× crowd-pipeline speedup.',
         image: 'Axis_football_26-1090110268.png',
         tags: ['Unity', 'C#', 'Zero-GC', 'Optimization', 'Shipped'],
@@ -322,6 +343,8 @@ const projectsData = [
     {
         section: 'games', code: 'GAME-02',
         title: 'Bellatrix',
+        kicker: '3D editor + path tracer',
+        stats: 'Rust · WGSL path tracer · GI / IBL / PBR · custom wgpu UI',
         short: 'A from-scratch WGSL path tracer with a custom voxel modeling system on top — no game engine underneath.',
         image: 'images/bellatrix/room.webp',
         tags: ['Rust', 'wgpu', 'Path tracing', 'WGSL', 'PBR'],
@@ -341,6 +364,8 @@ const projectsData = [
     {
         section: 'games', code: 'GAME-03',
         title: 'Ajaara',
+        kicker: 'UE5 action-adventure',
+        stats: 'Unreal Engine 5 · C++ · solo',
         short: 'Personal Unreal Engine 5 project — narrative action-adventure with reactive AI, built solo.',
         image: 'images/ajaara/HighresScreenshot00004.jpg',
         gallery: [
@@ -367,6 +392,8 @@ const projectsData = [
     {
         section: 'tools', code: 'TOOL-01',
         title: 'Weather',
+        kicker: 'Radar + nowcast desktop app',
+        stats: 'Rust · NEXRAD L3 decode · ML nowcast · SQLite',
         short: 'Native weather + live-radar desktop app — decodes NEXRAD Level III radar from binary and runs its own ML nowcast.',
         image: 'images/weather/radar.webp',
         tags: ['Rust', 'egui / wgpu', 'NEXRAD radar', 'ML nowcast', 'SQLite'],
@@ -384,6 +411,8 @@ const projectsData = [
     {
         section: 'tools', code: 'TOOL-02',
         title: 'WatchTower',
+        kicker: 'Sequence-memory engine',
+        stats: 'Rust · Postgres/pgvector · prediction + memory',
         short: 'A from-scratch sequence-memory and prediction engine with a tiered Postgres/pgvector memory backbone.',
         image: 'images/watchtower/watchtower.webp',
         tags: ['Rust', 'Sequence model', 'pgvector', 'Embeddings', 'Memory'],
@@ -401,6 +430,8 @@ const projectsData = [
     {
         section: 'tools', code: 'TOOL-03',
         title: 'repliKate',
+        kicker: 'Online-learning ML engine',
+        stats: 'C# · ILGPU · adapts without pretraining',
         short: 'High-velocity continuous-learning ML engine — adapts online without pretraining at ~100 MB RAM.',
         image: 'images/replikate/online-learning.webp',
         tags: ['C#', 'ILGPU', 'Online learning', 'GPU'],
@@ -419,6 +450,8 @@ const projectsData = [
     {
         section: 'tools', code: 'TOOL-04',
         title: 'RustRent',
+        kicker: 'Resilient market scraper',
+        stats: 'Rust · async · anti-bot resilient',
         short: 'A resilient rental-market scraper and analysis pipeline in Rust — engineered to get through aggressive anti-bot and rate-limit defenses.',
         image: 'images/rustrent/rent-analysis.webp',
         tags: ['Rust', 'Web scraping', 'Anti-bot', 'Async', 'Data'],
@@ -436,6 +469,8 @@ const projectsData = [
     {
         section: 'tools', code: 'TOOL-05',
         title: 'WhoAmI',
+        kicker: 'High-dimensional personality model',
+        stats: 'C# · Avalonia · sparse trait vectors',
         short: 'A high-dimensional personality model that keeps nuance and contradiction instead of bucketing into Big Five.',
         image: 'images/whoami/whoami.webp',
         tags: ['C#', 'Avalonia', 'Vector modeling', 'Personality'],
@@ -453,6 +488,8 @@ const projectsData = [
     {
         section: 'tools', code: 'TOOL-06',
         title: 'Nocturne',
+        kicker: 'Native music client',
+        stats: 'Rust · wgpu · RuneOS app',
         short: 'Native Rust music client for RuneOS — part of the OS app suite.',
         image: 'images/nocturne/player.webp',
         gallery: ['images/nocturne/player.webp', 'images/nocturne/player-2.webp'],
@@ -505,17 +542,25 @@ function createCard(project) {
     const badge = project.flagship ? `<span class="flagship-badge">FLAGSHIP</span>` : '';
     const linkState = project.private ? 'PRIVATE' : (project.github || project.steam ? 'DETAIL ▸' : 'DETAIL ▸');
 
+    const kicker = project.kicker ? `<div class="card-kicker mono">${esc(project.kicker)}</div>` : '';
+    const stats = project.stats ? `<div class="card-stats mono">${esc(project.stats)}</div>` : '';
+    const repoLink = project.github
+        ? `<a class="card-repo" href="${esc(project.github)}" target="_blank" rel="noopener" aria-label="${esc(project.title)} repository on GitHub" onclick="event.stopPropagation()">${gitSvg}</a>`
+        : '';
+
     card.innerHTML = `
         ${badge}
         <span class="card-corner">${esc(project.code)}</span>
         ${thumb}
         <div class="card-info">
             <h3 class="card-title">${esc(project.title)}</h3>
+            ${kicker}
             <p class="card-desc">${esc(project.short)}</p>
+            ${stats}
             <div class="card-tags">${project.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
             <div class="card-foot">
                 <span>${esc(project.tech.split('·')[0].trim())}</span>
-                <span class="open">${linkState}</span>
+                <span class="card-foot-right">${repoLink}<span class="open">${linkState}</span></span>
             </div>
         </div>`;
 
@@ -562,7 +607,9 @@ function openModal(project) {
     body.innerHTML = `
         <div class="modal-eyebrow">${esc(project.code)} · ${esc(project.section.toUpperCase())}</div>
         <h2 class="modal-title" id="modalTitle">${esc(project.title)}</h2>
+        ${project.kicker ? `<div class="modal-kicker mono">${esc(project.kicker)}</div>` : ''}
         <div class="modal-meta">${project.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+        ${project.stats ? `<div class="modal-stats mono">${esc(project.stats)}</div>` : ''}
         ${media}
         <p class="modal-description">${esc(project.description)}</p>
         <div class="modal-section modal-features"><h3>Highlights</h3><ul>${project.features.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
