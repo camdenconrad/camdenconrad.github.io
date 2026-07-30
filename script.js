@@ -580,6 +580,8 @@ function createCard(project) {
 function openModal(project) {
     const modal = document.getElementById('projectModal');
     const body = document.getElementById('modalBody');
+    const winTitle = document.getElementById('modalWinTitle');
+    if (winTitle) winTitle.textContent = `${project.code} — ${project.title}`;
     stopGallery();
 
     // media
@@ -736,4 +738,4 @@ window.navigateGallery = navigateGallery;
 window.goToSlide = goToSlide;
 window.closeModal = closeModal;
 
-console.log('%cCAMDEN CONRAD — systems & flight software', 'color:#46d5e0;font-family:monospace;font-size:13px;');
+console.log('%cCAMDEN CONRAD — systems & flight software', 'color:#E96E2C;font-family:monospace;font-size:13px;');
