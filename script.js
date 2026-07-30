@@ -114,6 +114,7 @@ const projectsData = [
     {
         section: 'devtools', code: 'DT-01', flagship: true,
         title: 'Coven',
+        why: 'Chat-based AI coding tops out at one conversation. Coven asks what if it were orchestrated instead — many agents in parallel, per-project memory, live GitHub state, adversarial review — so the bottleneck stops being me.',
         kicker: 'AI agent orchestrator',
         stats: 'Rust · Postgres/pgvector · parallel Claude sessions',
         short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
@@ -153,20 +154,21 @@ const projectsData = [
     {
         section: 'devtools', code: 'DT-03',
         title: 'Bellatrix',
-        kicker: '3D editor + path tracer',
-        stats: 'Rust · WGSL path tracer · GI / IBL / PBR · custom wgpu UI',
-        short: 'A from-scratch WGSL path tracer with a custom voxel modeling system on top — no game engine underneath.',
+        kicker: 'Face-authored 3D scene editor',
+        stats: 'Rust · face-first geometry · from-scratch WGSL path tracer',
+        short: 'A 3D scene editor built around a face-first world model — author each face like a pixel, in 3D — on a from-scratch WGSL path tracer.',
         image: 'images/bellatrix/room.webp',
-        tags: ['Path tracing', 'WGSL', 'GI / IBL / PBR', 'wgpu'],
-        description: 'Bellatrix is a 3D scene editor built on a real-time renderer I wrote entirely from scratch — no game engine, and even the UI is a custom immediate-mode GUI rendered directly in wgpu with no framework underneath. Scenes are grid-snapped faces (full / half / quarter) lit by a hand-written path tracer: soft shadows, bounce global illumination, reflections, and temporal accumulation, with HDR image-based environment lighting and physically-based metallic/roughness materials. A denoiser, multi-pass bloom, and click-to-focus depth of field finish each frame. On the editing side there are layers with per-layer materials and visibility, full undo/redo, and a custom project format that stores 20,000+ faces at roughly 2 MB. It is where most of my low-level graphics work lives — a physically-based renderer and the editor around it, built end to end.',
+        tags: ['Face-first geometry', 'Path tracing', 'WGSL', 'GI / IBL / PBR', 'wgpu'],
+        why: 'I wanted a cozy, lofi, pixel-art world with voxel-like geometry, and no tool fit: Blender optimizes for arbitrary meshes and UVs, voxel editors optimize for cubes, pixel tools stop at 2D. The representation itself was wrong — so scenes are grid-snapped faces you author one at a time, pixel-art precision projected into 3D. Building the tool was faster than fighting one that thinks in meshes.',
+        description: 'Bellatrix is a 3D scene editor built around a different world model: instead of meshes or cubes, scenes are grid-snapped faces — full, half, and quarter size — that you author and color one at a time, like placing pixels on a canvas that wraps around objects in 3D. The precision comes from the constraint: you\'re never sculpting arbitrary geometry, you\'re deciding what every visible face looks like. Under it is a rendering stack I wrote entirely from scratch — a real WGSL path tracer with soft shadows, bounce global illumination, reflections, and temporal accumulation; HDR image-based environment lighting; PBR metallic/roughness materials; a denoiser; multi-pass bloom; and click-to-focus depth of field — plus a custom immediate-mode GUI, all through hand-written wgpu pipelines. No game engine, no scene-graph library, no UI framework underneath. A custom format stores 20,000+ faces at roughly 2 MB.',
         features: [
-            'From-scratch WGSL path tracer on wgpu — no engine',
-            'Bounce global illumination, soft shadows, reflections, temporal accumulation',
-            'HDR image-based environment lighting (.hdr / .exr)',
-            'PBR metallic/roughness materials with procedural texture + normal maps',
-            'Denoiser, multi-pass bloom, click-to-focus depth of field',
-            'Custom immediate-mode GUI rendered entirely in wgpu — no UI framework',
-            'Grid-snapped face editing, layers, undo/redo; ~20,000 faces at ~2 MB'
+            'Face-first world model — grid-snapped full / half / quarter faces, each colored by hand',
+            'Pixel-art precision projected into 3D: intentionality over arbitrary freedom',
+            'From-scratch WGSL path tracer: soft shadows, bounce GI, reflections, temporal accumulation',
+            'HDR image-based lighting, PBR metallic/roughness materials, denoiser',
+            'Multi-pass bloom and click-to-focus depth of field',
+            'Custom immediate-mode GUI — all hand-written wgpu pipelines, no engine / scene-graph / UI framework',
+            'Layers, undo/redo; custom format stores ~20,000 faces at ~2 MB'
         ],
         tech: 'Rust · wgpu · WGSL · path tracing · PBR',
         github: 'https://github.com/camdenconrad/Bellatrix'
@@ -214,6 +216,7 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-01',
         title: 'RuneOS',
+        why: 'Not built to be adopted — built to be inhabited. One coherent philosophy across the whole desktop, tuned to exactly how I want to work, instead of adapting myself to someone else\'s environment.',
         kicker: 'Custom Linux operating system',
         stats: '43 crates · packaged kernel · ~30 daemons · daily-driven',
         short: 'A full custom, daily-driven Linux stack — packaged kernel, Smithay compositor, native Rust shell, ~30 daemons, custom scheduler.',
@@ -238,6 +241,7 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-02',
         title: 'Runic',
+        why: 'PipeWire is general-purpose; RuneOS isn\'t. Runic trades portability for what a portable server can\'t assume — a scheduling contract with the OS, and bit-perfect paths that stay bit-perfect.',
         kicker: 'Audio server · PipeWire replacement',
         stats: 'Rust · ALSA · 2nd-order DLL clock · PipeWire-protocol compat',
         short: 'A from-scratch Rust audio server replacing PipeWire — bit-perfect playback, pro low latency, and PipeWire wire-compat.',
@@ -258,6 +262,7 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-03',
         title: 'Seance',
+        why: 'Built safety-first, before anything that could break the box exists: the network layer as invariants a teardown path can always undo — not a daemon you have to trust to self-heal.',
         kicker: 'Network control plane',
         stats: 'Rust · eBPF (aya) · fail-safe staged design',
         short: 'A fail-safe network control plane, in staged eBPF layers, slowly replacing NetworkManager.',
@@ -317,6 +322,7 @@ const projectsData = [
     {
         section: 'aerospace', code: 'SIM-01',
         title: 'Orbital',
+        why: 'Rather than extend GMAT or Nyx, start from the equations — own the propagator, the ephemerides, and the determinism end to end, so every trajectory is reproducible and I understand every step.',
         kicker: 'Interplanetary trajectory optimizer',
         stats: 'Rust · JPL DE440 (21 bodies) · Dormand–Prince 5(4) · 1PN relativity',
         short: 'Interplanetary trajectory optimizer + solar-system simulator — designs real transfers and rediscovers the Mars 2020 launch window to within a day.',
@@ -339,6 +345,7 @@ const projectsData = [
     {
         section: 'aerospace', code: 'SIM-02',
         title: 'Besom',
+        why: 'A real-clock simulator can never hand you the same run twice. Besom asks what if the simulation owned time instead of the OS — so flight software becomes byte-for-byte reproducible and actually regression-testable.',
         kicker: 'Deterministic NASA cFS harness',
         stats: 'Rust · cFS software bus (CI_LAB / TO_LAB) · byte-identical telemetry',
         short: 'Deterministic simulation harness for NASA cFS — identical scenarios produce byte-identical telemetry.',
@@ -610,6 +617,7 @@ function openModal(project) {
         ${project.stats ? `<div class="modal-stats mono">${esc(project.stats)}</div>` : ''}
         ${media}
         <p class="modal-description">${esc(project.description)}</p>
+        ${project.why ? `<div class="modal-why"><span class="modal-why-label mono">WHY IT EXISTS</span><p>${esc(project.why)}</p></div>` : ''}
         <div class="modal-section modal-features"><h3>Highlights</h3><ul>${project.features.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
         <div class="modal-section"><h3>Stack</h3><p class="modal-tech">${esc(project.tech)}</p></div>
         <div class="modal-actions">${btns.join('')}</div>`;
