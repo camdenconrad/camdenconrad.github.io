@@ -114,7 +114,7 @@ const projectsData = [
     {
         section: 'devtools', code: 'DT-01', flagship: true,
         title: 'Coven',
-        why: 'Chat-based AI coding tops out at one conversation. Coven asks what if it were orchestrated instead — many agents in parallel, per-project memory, live GitHub state, adversarial review — so the bottleneck stops being me.',
+        why: 'Chat-based AI coding tops out at one conversation. Coven asks what if it were orchestrated instead — many agents in parallel, per-project memory, live GitHub state, adversarial review — so I can coordinate parallel work without losing review discipline or project context.',
         kicker: 'AI agent orchestrator',
         stats: 'Rust · Postgres/pgvector · parallel Claude sessions',
         short: 'Built because chat wasn\'t enough — a workspace that treats AI as a coordinated team, not one assistant: parallel agents, per-project memory, and adversarial red-team review.',
@@ -158,8 +158,9 @@ const projectsData = [
         stats: 'Rust · face-first geometry · from-scratch WGSL path tracer',
         short: 'A face-first 3D scene editor on a from-scratch WGSL path tracer. Instead of sculpting meshes or painting UVs, scenes are authored one grid-snapped face at a time — pixel-art precision and intentionality, in 3D.',
         image: 'images/bellatrix/room.webp',
+        gallery: ['images/bellatrix/room.webp', 'images/bellatrix/interior.webp'],
         tags: ['Face-first geometry', 'Path tracing', 'WGSL', 'GI / IBL / PBR', 'wgpu'],
-        why: 'I wanted a cozy, lofi, pixel-art world with voxel-like geometry, and no tool fit: Blender optimizes for arbitrary meshes and UVs, voxel editors optimize for cubes, pixel tools stop at 2D. The representation itself was wrong — so scenes are grid-snapped faces you author one at a time, pixel-art precision projected into 3D. Building the tool was faster than fighting one that thinks in meshes.',
+        why: 'I wanted a cozy, lofi, pixel-art world with voxel-like geometry, and no tool fit: Blender optimizes for arbitrary meshes and UVs, voxel editors optimize for cubes, pixel tools stop at 2D. None of them had the right representation — so scenes are grid-snapped faces you author one at a time, pixel-art precision projected into 3D. Building the tool was faster than fighting one that thinks in meshes.',
         description: 'Bellatrix is a 3D scene editor built around a different world model: instead of meshes or cubes, scenes are grid-snapped faces — full, half, and quarter size — that you author and color one at a time, like placing pixels on a canvas that wraps around objects in 3D. The precision comes from the constraint: you\'re never sculpting arbitrary geometry, you\'re deciding what every visible face looks like. Under it is a rendering stack I wrote entirely from scratch — a real WGSL path tracer with soft shadows, bounce global illumination, reflections, and temporal accumulation; HDR image-based environment lighting; PBR metallic/roughness materials; a denoiser; multi-pass bloom; and click-to-focus depth of field — plus a custom immediate-mode GUI, all through hand-written wgpu pipelines. No game engine, no scene-graph library, no UI framework underneath. A custom format stores 20,000+ faces at roughly 2 MB.',
         features: [
             'Face-first world model — grid-snapped full / half / quarter faces, each colored by hand',
@@ -216,7 +217,7 @@ const projectsData = [
     {
         section: 'systems', code: 'OS-01',
         title: 'RuneOS',
-        why: 'Not built to be adopted — built to be inhabited. One coherent philosophy across the whole desktop, tuned to exactly how I want to work, instead of adapting myself to someone else\'s environment.',
+        why: 'Not built to be adopted — built to be inhabited. One coherent philosophy across the whole desktop, tuned to exactly how I want to work.',
         kicker: 'Custom Linux operating system',
         stats: '43 crates · packaged kernel · ~30 daemons · daily-driven',
         short: 'A full custom, daily-driven Linux stack — packaged kernel, Smithay compositor, native Rust shell, ~30 daemons, custom scheduler.',
@@ -247,10 +248,10 @@ const projectsData = [
         short: 'A from-scratch Rust audio server replacing PipeWire — bit-perfect playback, pro low latency, and PipeWire wire-compat.',
         image: 'images/runic/runic.webp',
         tags: ['Audio server', 'Real-time', 'ALSA', 'PipeWire-compat'],
-        description: 'Runic is a from-scratch Rust audio server for RuneOS built to replace PipeWire: bit-perfect / hi-res playback, pro-grade low latency, Bluetooth, and screen sharing, plus a scheduling contract with rune-sched that a portable audio server can\'t have. Its timing substrate is a hand-written second-order DLL (delay-locked loop) that paces a bit-perfect ALSA sink with microsecond-level error and zero xruns; on top sit a graph engine (activation records + an eventfd cascade), a mixer and resampler, a mic effect chain that routes mic → fx → every app, and a Bluetooth sink. Crucially it speaks PipeWire\'s native wire protocol, so OBS and browsers screen-share against it unmodified.',
+        description: 'Runic is a from-scratch Rust audio server for RuneOS built to replace PipeWire: bit-perfect / hi-res playback, low latency, Bluetooth, and screen sharing, plus a scheduling contract with rune-sched that a portable audio server can\'t have. Its timing substrate is a hand-written second-order DLL (delay-locked loop) that paces a bit-perfect ALSA sink with microsecond-scale error and no xruns in sustained tests; on top sit a graph engine (activation records + an eventfd cascade), a mixer and resampler, a mic effect chain that routes mic → fx → every app, and a Bluetooth sink. Crucially it speaks PipeWire\'s native wire protocol, so OBS and browsers screen-share against it unmodified.',
         features: [
             'Bit-perfect / hi-res playback with no unwanted resampling',
-            'Second-order DLL timing substrate — µs-level clock error, zero xruns',
+            'Second-order DLL timing substrate — µs-scale clock error, no xruns in sustained local tests',
             'Graph engine: activation records + eventfd cascade',
             'Mixer, resampler, ALSA + Bluetooth sinks',
             'Mic effect chain: mic → fx → every app',
@@ -345,7 +346,7 @@ const projectsData = [
     {
         section: 'aerospace', code: 'SIM-02',
         title: 'Besom',
-        why: 'A real-clock simulator can never hand you the same run twice. Besom asks what if the simulation owned time instead of the OS — so flight software becomes byte-for-byte reproducible and actually regression-testable.',
+        why: 'Real-time simulators make byte-for-byte reproducibility hard to guarantee. Besom asks what if the simulation owned time instead of the OS — so, on a fixed build, identical scenarios replay byte-for-byte and flight software becomes genuinely regression-testable.',
         kicker: 'Deterministic NASA cFS harness',
         stats: 'Rust · cFS software bus (CI_LAB / TO_LAB) · byte-identical telemetry',
         short: 'Deterministic simulation harness for NASA cFS — identical scenarios produce byte-identical telemetry.',
