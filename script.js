@@ -110,57 +110,34 @@ const consoleVisuals = {
 
 // ---- Project data, grouped by section ----
 const projectsData = [
-    // ===== Flight Software & Aerospace =====
+    // ===== Developer Tools & Platforms =====
     {
-        section: 'aerospace', code: 'FSW-01', flagship: true,
-        title: 'Orbital',
-        kicker: 'Interplanetary trajectory optimizer',
-        stats: 'Rust · JPL DE440 (21 bodies) · Dormand–Prince 5(4) · 1PN relativity',
-        short: 'Interplanetary trajectory optimizer + solar-system simulator — designs real transfers and rediscovers the Mars 2020 launch window to within a day.',
-        image: 'images/orbital/porkchop.png',
-        gallery: ['images/orbital/porkchop.png', 'images/orbital/hero.png'],
-        tags: ['Rust', 'Trajectory optimization', 'Lambert / porkchop', '1PN n-body', 'JPL DE440'],
-        description: 'Orbital is a from-scratch interplanetary trajectory optimizer and high-fidelity solar-system simulator, built from first principles rather than extending existing astrodynamics frameworks. It designs real transfers under full n-body, first post-Newtonian (1PN) dynamics: Lambert/porkchop screening, a Lambert-seeded beam search, gravity-assist tours, low-thrust (SEP) profiles, and a two-phase corrector with B-plane targeting at arrival. It propagates on real JPL DE440 ephemerides (via ANISE) with an adaptive Dormand–Prince 5(4) integrator written as a pure function of its inputs — no wall clock, no threads, no randomness — so two runs on the same build are bit-for-bit reproducible. Validated against published mission data: it rediscovers the Mars 2020 launch to within a day of departure and ~1% of launch energy, and finds the 2026/27 type-II Mars window consistent with the JPL Trajectory Browser. A single native Rust app (eframe/egui + wgpu) with GPU porkchop screening and a live 3D view.',
+        section: 'devtools', code: 'DT-01', flagship: true,
+        title: 'Coven',
+        kicker: 'AI agent orchestrator',
+        stats: 'Rust · Postgres/pgvector · parallel Claude sessions',
+        short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
+        image: 'images/coven/mission-control.webp',
+        tags: ['AI orchestration', 'Parallel agents', 'Postgres / pgvector', 'GitHub API', 'Rust'],
+        description: 'Coven is a Rune-native mission-control application that orchestrates multiple parallel Claude Code sessions per project. It integrates with GitHub issues and PRs, runs an adversarial red-team review stage where Codex and Gemini review diffs against each other, keeps a Postgres + pgvector memory, and switches models based on budget. A personal tool for coordinating several automated development workflows at once.',
         features: [
-            'Designs real transfers under full n-body + 1PN post-Newtonian dynamics',
-            'Lambert / porkchop screening, Lambert-seeded beam search, gravity-assist tours',
-            'Low-thrust (SEP) profiles and a two-phase corrector with B-plane targeting at arrival',
-            'Rediscovers Mars 2020 to ~1 day / ~1% launch energy; 2026/27 window matches the JPL Trajectory Browser',
-            'Real JPL DE440 ephemerides via ANISE; adaptive Dormand–Prince 5(4) — bit-for-bit reproducible on a given build',
-            'Reproduces Mercury\'s ~43″/century perihelion advance in a dedicated validation case',
-            'Single native Rust app (eframe/egui + wgpu) — GPU porkchop screening + live 3D view'
+            'Orchestrates multiple parallel Claude Code sessions per project',
+            'GitHub issue / PR integration',
+            'Adversarial red-team review — Codex + Gemini reviewing diffs',
+            'Postgres + pgvector long-term memory',
+            'Budget-aware model switching'
         ],
-        tech: 'Rust · wgpu / egui · ANISE / JPL DE440 · DP5(4) · B-plane targeting',
-        github: 'https://github.com/camdenconrad/Orbital'
+        tech: 'Rust · Postgres · pgvector · LLM orchestration',
+        private: true
     },
     {
-        section: 'aerospace', code: 'FSW-02',
-        title: 'Besom',
-        kicker: 'Deterministic NASA cFS harness',
-        stats: 'Rust · cFS software bus (CI_LAB / TO_LAB) · byte-identical telemetry',
-        short: 'Deterministic simulation harness for NASA cFS — identical scenarios produce byte-identical telemetry.',
-        image: 'images/besom/ground-station.webp',
-        tags: ['Rust', 'Apache-2.0', 'cFS / cFE', 'Determinism', 'Software bus'],
-        description: 'Besom is an open-source deterministic simulation harness for NASA\'s core Flight System (cFS). It runs real, unmodified cFE flight software but owns the clock: identical scenarios produce byte-identical telemetry, which supports reproducible regression testing — something NOS3-style real-time simulators aren\'t built for. Besom propagates a two-body orbit in lockstep with the software under test and doubles as a ground station: it publishes simulated vehicle state on the cFS software bus and drives command ingest and telemetry output through CI_LAB and TO_LAB over UDP, so real flight apps consume it unmodified.',
-        features: [
-            'Runs real, unmodified cFE flight software',
-            'Owns the clock — identical scenarios → byte-identical telemetry',
-            'Supports reproducible regression testing of flight software',
-            'Propagates a two-body orbit in lockstep with the software',
-            'Ground station on the cFS software bus — CI_LAB commanding, TO_LAB telemetry (UDP)',
-            'Open source, Apache-2.0'
-        ],
-        tech: 'Rust · cFS / cFE · software bus (CI_LAB / TO_LAB) · Apache-2.0',
-        github: 'https://github.com/camdenconrad/besom'
-    },
-    {
-        section: 'aerospace', code: 'FSW-03',
+        section: 'devtools', code: 'DT-02',
         title: 'Cauldron',
         kicker: 'Flight-software IDE',
         stats: 'Rust · wgpu · whole-project call-graph analysis · live JPL-rule checks',
         short: 'GPU-rendered Rust IDE that enforces NASA/JPL coding standards as live, save-time diagnostics.',
         visual: 'cauldron',
-        tags: ['Rust', 'wgpu', 'JPL C Standard', 'Power of Ten', 'Static analysis'],
+        tags: ['Flight-SW linting', 'Power of Ten', 'JPL C', 'Static analysis', 'wgpu'],
         description: 'Cauldron is a GPU-rendered (wgpu) Rust IDE that checks selected NASA/JPL coding rules — from the Power of Ten and the JPL C coding standard — as live, save-time diagnostics. Beyond typical editor diagnostics, it performs whole-project call-graph analysis and recursion detection, and it runs the real cFE contribution CI gates locally (clang-format drift, commit conventions, doxygen, unit-test coupling), folding clang-tidy, cppcheck, and a custom tree-sitter analyzer into one diagnostics model — so violations surface the moment you save rather than in a remote pipeline.',
         features: [
             'GPU-rendered editor built on wgpu',
@@ -173,6 +150,65 @@ const projectsData = [
         github: 'https://github.com/camdenconrad/cauldron',
         image: 'images/cauldron/ide.webp'
     },
+    {
+        section: 'devtools', code: 'DT-03',
+        title: 'Bellatrix',
+        kicker: '3D editor + path tracer',
+        stats: 'Rust · WGSL path tracer · GI / IBL / PBR · custom wgpu UI',
+        short: 'A from-scratch WGSL path tracer with a custom voxel modeling system on top — no game engine underneath.',
+        image: 'images/bellatrix/room.webp',
+        tags: ['Path tracing', 'WGSL', 'GI / IBL / PBR', 'wgpu'],
+        description: 'Bellatrix is a 3D scene editor built on a real-time renderer I wrote entirely from scratch — no game engine, and even the UI is a custom immediate-mode GUI rendered directly in wgpu with no framework underneath. Scenes are grid-snapped faces (full / half / quarter) lit by a hand-written path tracer: soft shadows, bounce global illumination, reflections, and temporal accumulation, with HDR image-based environment lighting and physically-based metallic/roughness materials. A denoiser, multi-pass bloom, and click-to-focus depth of field finish each frame. On the editing side there are layers with per-layer materials and visibility, full undo/redo, and a custom project format that stores 20,000+ faces at roughly 2 MB. It is where most of my low-level graphics work lives — a physically-based renderer and the editor around it, built end to end.',
+        features: [
+            'From-scratch WGSL path tracer on wgpu — no engine',
+            'Bounce global illumination, soft shadows, reflections, temporal accumulation',
+            'HDR image-based environment lighting (.hdr / .exr)',
+            'PBR metallic/roughness materials with procedural texture + normal maps',
+            'Denoiser, multi-pass bloom, click-to-focus depth of field',
+            'Custom immediate-mode GUI rendered entirely in wgpu — no UI framework',
+            'Grid-snapped face editing, layers, undo/redo; ~20,000 faces at ~2 MB'
+        ],
+        tech: 'Rust · wgpu · WGSL · path tracing · PBR',
+        github: 'https://github.com/camdenconrad/Bellatrix'
+    },
+    {
+        section: 'devtools', code: 'DT-04',
+        title: 'glyph',
+        kicker: 'Package manager',
+        stats: 'Rust · pacman + AUR · one transparent CLI',
+        short: 'A fast package manager that unifies official repos and the AUR under one command — and prints exactly what it runs.',
+        image: 'images/glyph/glyph.webp',
+        tags: ['pacman + AUR', 'Transparent CLI', 'Arch', 'RuneOS'],
+        description: 'glyph is the RuneOS package manager — a fast, verbose front-end that unifies pacman (official repos) and yay (AUR) behind a single command. It always announces what it is doing and prints the exact underlying command before it runs, so there is never any mystery about what glyph did to your system: no black-box wrapper, just one fast, explicit interface over both package sources. Official repos are resolved first, with a flag to force the AUR-only path.',
+        features: [
+            'One command over both official repos (pacman) and the AUR (yay)',
+            'Prints the exact underlying command before running it — full transparency',
+            'Verbose, explicit output; never a black box',
+            'Official repos first, with an --aur override',
+            'Fast, single Rust binary'
+        ],
+        tech: 'Rust · CLI · pacman · yay / AUR',
+        github: 'https://github.com/camdenconradsms/livewall-studio'
+    },
+    {
+        section: 'devtools', code: 'DT-05',
+        title: 'murder',
+        kicker: 'Smart process killer',
+        stats: 'Rust · fuzzy match · session-safe',
+        short: 'Kill anything by fuzzy name — "murder covn" knows you mean Coven, finds every trace, and ends it. No PIDs, no flags, no pkill trivia.',
+        image: 'images/murder/murder.webp',
+        tags: ['Fuzzy process kill', 'Session-safe', 'CLI', 'Linux'],
+        description: 'murder is Rune\'s kill, built around one idea: you should not have to remember pkill -x versus pkill -f, hunt down a PID, or even spell the name right. You just say "murder covn" and it knows you meant Coven — it fuzzy-matches the process, finds every trace of it (all the matching processes, not just one), and ends them. No flags to memorize, no variants, no PID lookup. As a safety net it also wards the handful of processes that would tear down your live session — the compositor, the wallpaper engine, the dock — so a fat-fingered kill can\'t accidentally sign you out; you override with --ritual when you actually mean it.',
+        features: [
+            'Fuzzy name matching — "murder covn" resolves to Coven, typo and all',
+            'Finds and ends every trace of a process, not a single PID',
+            'No PIDs, no flags, no remembering pkill -x / -f variants',
+            'Wards session-critical processes (compositor, wallpaper, dock) unless --ritual',
+            'One small, fast Rust binary'
+        ],
+        tech: 'Rust · CLI · Linux · fuzzy process matching',
+        github: 'https://github.com/camdenconradsms/livewall-studio'
+    },
 
     // ===== Systems & OS =====
     {
@@ -183,7 +219,7 @@ const projectsData = [
         short: 'A full custom, daily-driven Linux stack — packaged kernel, Smithay compositor, native Rust shell, ~30 daemons, custom scheduler.',
         image: 'images/runeos/sunset.webp',
         gallery: ['images/runeos/sunset.webp', 'images/runeos/power.webp', 'images/runeos/desktop2.webp'],
-        tags: ['Rust', 'Wayland / Smithay', 'sched_ext', 'Linux', 'Compositor'],
+        tags: ['Custom OS', 'Wayland / Smithay', 'sched_ext', 'Linux'],
         description: 'RuneOS is a full custom Linux stack that I build and daily-drive. It includes a packaged kernel (linux-rune, Manjaro-based), a Wayland compositor built on Smithay, a native Rust shell, a package manager, roughly 30 system daemons, a custom sched_ext scheduler, and a native application suite. Parts of it are written under deliberately strict, self-imposed coding rules. The app suite includes Luna (an iMessage client), Nocturne (a Spotify client), Cauldron (the IDE above), and Hallow (a browser fork).',
         features: [
             'Packaged kernel — linux-rune, Manjaro-based',
@@ -206,7 +242,7 @@ const projectsData = [
         stats: 'Rust · ALSA · 2nd-order DLL clock · PipeWire-protocol compat',
         short: 'A from-scratch Rust audio server replacing PipeWire — bit-perfect playback, pro low latency, and PipeWire wire-compat.',
         image: 'images/runic/runic.webp',
-        tags: ['Rust', 'Audio', 'ALSA', 'Real-time', 'PipeWire-compat'],
+        tags: ['Audio server', 'Real-time', 'ALSA', 'PipeWire-compat'],
         description: 'Runic is a from-scratch Rust audio server for RuneOS built to replace PipeWire: bit-perfect / hi-res playback, pro-grade low latency, Bluetooth, and screen sharing, plus a scheduling contract with rune-sched that a portable audio server can\'t have. Its timing substrate is a hand-written second-order DLL (delay-locked loop) that paces a bit-perfect ALSA sink with microsecond-level error and zero xruns; on top sit a graph engine (activation records + an eventfd cascade), a mixer and resampler, a mic effect chain that routes mic → fx → every app, and a Bluetooth sink. Crucially it speaks PipeWire\'s native wire protocol, so OBS and browsers screen-share against it unmodified.',
         features: [
             'Bit-perfect / hi-res playback with no unwanted resampling',
@@ -226,7 +262,7 @@ const projectsData = [
         stats: 'Rust · eBPF (aya) · fail-safe staged design',
         short: 'A fail-safe network control plane, in staged eBPF layers, slowly replacing NetworkManager.',
         image: 'images/seance/seance.webp',
-        tags: ['Rust', 'eBPF', 'Networking', 'cgroup_skb', 'Fail-safe'],
+        tags: ['Network plane', 'eBPF (aya)', 'Fail-safe', 'cgroup_skb'],
         description: 'Seance is a network control plane I am building to replace NetworkManager, designed in staged safety layers. The S0 control plane installs a single inert beacon rule at boot, ticks a fixed loop, runs an invariant pass over the rule table, and proves its own liveness on two independent channels — and deliberately never repairs anything it observes, so the teardown path can always clean up after it even when the daemon is "a corpse or a liar." Above it, an eBPF cgroup_skb classifier puts Rust directly in the egress packet path, and a fanotify canary watchdog watches for tampering. The whole thing is engineered fail-safe-first: every rule is something the panic/teardown path can undo without the daemon\'s cooperation.',
         features: [
             'Staged design: S0 control plane → eBPF egress classifier → canary watchdog',
@@ -241,31 +277,12 @@ const projectsData = [
     },
     {
         section: 'systems', code: 'OS-04',
-        title: 'Coven',
-        kicker: 'AI agent orchestrator',
-        stats: 'Rust · Postgres/pgvector · parallel Claude sessions',
-        short: 'Rune-native mission control orchestrating parallel Claude Code sessions with adversarial red-team review.',
-        image: 'images/coven/mission-control.webp',
-        tags: ['Rust', 'Orchestration', 'Postgres / pgvector', 'GitHub API'],
-        description: 'Coven is a Rune-native mission-control application that orchestrates multiple parallel Claude Code sessions per project. It integrates with GitHub issues and PRs, runs an adversarial red-team review stage where Codex and Gemini review diffs against each other, keeps a Postgres + pgvector memory, and switches models based on budget. A personal tool for coordinating several automated development workflows at once.',
-        features: [
-            'Orchestrates multiple parallel Claude Code sessions per project',
-            'GitHub issue / PR integration',
-            'Adversarial red-team review — Codex + Gemini reviewing diffs',
-            'Postgres + pgvector long-term memory',
-            'Budget-aware model switching'
-        ],
-        tech: 'Rust · Postgres · pgvector · LLM orchestration',
-        private: true
-    },
-    {
-        section: 'systems', code: 'OS-05',
         title: 'livewall-studio',
         kicker: 'Live-wallpaper engine',
         stats: 'Rust · wgpu · Wayland layer-shell',
         short: 'A native Rust + wgpu live-wallpaper engine rendering on the Wayland background layer — the living wallpaper I daily-drive.',
         image: 'images/livewall/fallpark.webp',
-        tags: ['Rust', 'wgpu', 'Wayland', 'layer-shell', 'Tauri'],
+        tags: ['Live wallpaper', 'wgpu', 'Wayland layer-shell', 'Tauri'],
         description: 'livewall-studio authors, schedules, and switches whole desktop "environments" — a live wallpaper plus a day/night schedule with effects like rain fading in and out through the day. The wallpaper is rendered by a native Rust + wgpu engine I wrote that draws directly on the Wayland background layer via layer-shell, rather than going through the desktop\'s QML compositor, so I own the renderer end to end. A Tauri GUI authors environments and previews them live through the same engine. It grew out of "fallpark" — the lofi autumn-park scene, with full day/night gradings, that I daily-drive.',
         features: [
             'Native Rust + wgpu engine drawing on the Wayland background layer (layer-shell)',
@@ -278,53 +295,76 @@ const projectsData = [
         github: 'https://github.com/camdenconradsms/livewall-studio'
     },
     {
-        section: 'systems', code: 'OS-06',
-        title: 'glyph',
-        kicker: 'Package manager',
-        stats: 'Rust · pacman + AUR · one transparent CLI',
-        short: 'A fast package manager that unifies official repos and the AUR under one command — and prints exactly what it runs.',
-        image: 'images/glyph/glyph.webp',
-        tags: ['Rust', 'CLI', 'Arch / pacman', 'AUR', 'RuneOS'],
-        description: 'glyph is the RuneOS package manager — a fast, verbose front-end that unifies pacman (official repos) and yay (AUR) behind a single command. It always announces what it is doing and prints the exact underlying command before it runs, so there is never any mystery about what glyph did to your system: no black-box wrapper, just one fast, explicit interface over both package sources. Official repos are resolved first, with a flag to force the AUR-only path.',
+        section: 'systems', code: 'OS-05',
+        title: 'Nocturne',
+        kicker: 'Native music client',
+        stats: 'Rust · wgpu · RuneOS app',
+        short: 'Native Rust music client for RuneOS — part of the OS app suite.',
+        image: 'images/nocturne/player.webp',
+        gallery: ['images/nocturne/player.webp', 'images/nocturne/player-2.webp'],
+        tags: ['Music client', 'Native UI', 'Wayland', 'RuneOS'],
+        description: 'Nocturne is a native Rust music client built for RuneOS — a clean, keyboard-driven player that fits the OS\'s design language and rendering stack. A small piece of the daily-driven native app suite.',
         features: [
-            'One command over both official repos (pacman) and the AUR (yay)',
-            'Prints the exact underlying command before running it — full transparency',
-            'Verbose, explicit output; never a black box',
-            'Official repos first, with an --aur override',
-            'Fast, single Rust binary'
+            'Native Rust client for RuneOS',
+            'Keyboard-driven, fits the OS design language',
+            'Integrated with the RuneOS rendering stack'
         ],
-        tech: 'Rust · CLI · pacman · yay / AUR',
-        github: 'https://github.com/camdenconradsms/livewall-studio'
-    },
-    {
-        section: 'systems', code: 'OS-07',
-        title: 'murder',
-        kicker: 'Smart process killer',
-        stats: 'Rust · fuzzy match · session-safe',
-        short: 'Kill anything by fuzzy name — "murder covn" knows you mean Coven, finds every trace, and ends it. No PIDs, no flags, no pkill trivia.',
-        image: 'images/murder/murder.webp',
-        tags: ['Rust', 'CLI', 'Linux', 'RuneOS'],
-        description: 'murder is Rune\'s kill, built around one idea: you should not have to remember pkill -x versus pkill -f, hunt down a PID, or even spell the name right. You just say "murder covn" and it knows you meant Coven — it fuzzy-matches the process, finds every trace of it (all the matching processes, not just one), and ends them. No flags to memorize, no variants, no PID lookup. As a safety net it also wards the handful of processes that would tear down your live session — the compositor, the wallpaper engine, the dock — so a fat-fingered kill can\'t accidentally sign you out; you override with --ritual when you actually mean it.',
-        features: [
-            'Fuzzy name matching — "murder covn" resolves to Coven, typo and all',
-            'Finds and ends every trace of a process, not a single PID',
-            'No PIDs, no flags, no remembering pkill -x / -f variants',
-            'Wards session-critical processes (compositor, wallpaper, dock) unless --ritual',
-            'One small, fast Rust binary'
-        ],
-        tech: 'Rust · CLI · Linux · fuzzy process matching',
-        github: 'https://github.com/camdenconradsms/livewall-studio'
+        tech: 'Rust · native UI · audio',
+        github: 'https://github.com/camdenconrad/nocturne'
     },
 
-    // ===== Shipped Games =====
+    // ===== Simulation & Flight Software =====
     {
-        section: 'games', code: 'GAME-01',
+        section: 'aerospace', code: 'SIM-01',
+        title: 'Orbital',
+        kicker: 'Interplanetary trajectory optimizer',
+        stats: 'Rust · JPL DE440 (21 bodies) · Dormand–Prince 5(4) · 1PN relativity',
+        short: 'Interplanetary trajectory optimizer + solar-system simulator — designs real transfers and rediscovers the Mars 2020 launch window to within a day.',
+        image: 'images/orbital/porkchop.png',
+        gallery: ['images/orbital/porkchop.png', 'images/orbital/hero.png'],
+        tags: ['Trajectory optimization', 'Lambert / porkchop', '1PN n-body', 'JPL DE440', 'Rust'],
+        description: 'Orbital is a from-scratch interplanetary trajectory optimizer and high-fidelity solar-system simulator, built from first principles rather than extending existing astrodynamics frameworks. It designs real transfers under full n-body, first post-Newtonian (1PN) dynamics: Lambert/porkchop screening, a Lambert-seeded beam search, gravity-assist tours, low-thrust (SEP) profiles, and a two-phase corrector with B-plane targeting at arrival. It propagates on real JPL DE440 ephemerides (via ANISE) with an adaptive Dormand–Prince 5(4) integrator written as a pure function of its inputs — no wall clock, no threads, no randomness — so two runs on the same build are bit-for-bit reproducible. Validated against published mission data: it rediscovers the Mars 2020 launch to within a day of departure and ~1% of launch energy, and finds the 2026/27 type-II Mars window consistent with the JPL Trajectory Browser. A single native Rust app (eframe/egui + wgpu) with GPU porkchop screening and a live 3D view.',
+        features: [
+            'Designs real transfers under full n-body + 1PN post-Newtonian dynamics',
+            'Lambert / porkchop screening, Lambert-seeded beam search, gravity-assist tours',
+            'Low-thrust (SEP) profiles and a two-phase corrector with B-plane targeting at arrival',
+            'Rediscovers Mars 2020 to ~1 day / ~1% launch energy; 2026/27 window matches the JPL Trajectory Browser',
+            'Real JPL DE440 ephemerides via ANISE; adaptive Dormand–Prince 5(4) — bit-for-bit reproducible on a given build',
+            'Reproduces Mercury\'s ~43″/century perihelion advance in a dedicated validation case',
+            'Single native Rust app (eframe/egui + wgpu) — GPU porkchop screening + live 3D view'
+        ],
+        tech: 'Rust · wgpu / egui · ANISE / JPL DE440 · DP5(4) · B-plane targeting',
+        github: 'https://github.com/camdenconrad/Orbital'
+    },
+    {
+        section: 'aerospace', code: 'SIM-02',
+        title: 'Besom',
+        kicker: 'Deterministic NASA cFS harness',
+        stats: 'Rust · cFS software bus (CI_LAB / TO_LAB) · byte-identical telemetry',
+        short: 'Deterministic simulation harness for NASA cFS — identical scenarios produce byte-identical telemetry.',
+        image: 'images/besom/ground-station.webp',
+        tags: ['Deterministic sim', 'NASA cFS / cFE', 'Software bus', 'Apache-2.0'],
+        description: 'Besom is an open-source deterministic simulation harness for NASA\'s core Flight System (cFS). It runs real, unmodified cFE flight software but owns the clock: identical scenarios produce byte-identical telemetry, which supports reproducible regression testing — something NOS3-style real-time simulators aren\'t built for. Besom propagates a two-body orbit in lockstep with the software under test and doubles as a ground station: it publishes simulated vehicle state on the cFS software bus and drives command ingest and telemetry output through CI_LAB and TO_LAB over UDP, so real flight apps consume it unmodified.',
+        features: [
+            'Runs real, unmodified cFE flight software',
+            'Owns the clock — identical scenarios → byte-identical telemetry',
+            'Supports reproducible regression testing of flight software',
+            'Propagates a two-body orbit in lockstep with the software',
+            'Ground station on the cFS software bus — CI_LAB commanding, TO_LAB telemetry (UDP)',
+            'Open source, Apache-2.0'
+        ],
+        tech: 'Rust · cFS / cFE · software bus (CI_LAB / TO_LAB) · Apache-2.0',
+        github: 'https://github.com/camdenconrad/besom'
+    },
+    // ===== Engines, ML & Data =====
+    {
+        section: 'engines', code: 'ENG-01',
         title: 'Axis Football 2026',
         kicker: 'Shipped commercial game',
         stats: 'Unity · 10,000+ active players · 7.8× tool speedup',
         short: 'Shipped to PC/Xbox/PlayStation, 10,000+ active players — zero-GC replay system and a 7.8× crowd-pipeline speedup.',
         image: 'Axis_football_26-1090110268.png',
-        tags: ['Unity', 'C#', 'Zero-GC', 'Optimization', 'Shipped'],
+        tags: ['Shipped title', 'Zero-GC replay', '7.8× speedup', 'Unity', 'C#'],
         description: 'Axis Football 2026 is a commercial title shipped to PC, Xbox, and PlayStation with 10,000+ active players, where I am credited as Contract Systems Programmer. I rebuilt the replay system to be zero-GC — 25 MB captures 15 seconds of full 22-player data with variable-speed playback, and the added instrumentation eliminated the timing-related crashes we were seeing in QA. I re-architected the Crowd Editor pipeline for a 684% (7.8×) speedup, turning a days-long process into minutes and enabling 10× more crowd volume, and automated a live-statistics narrative commentary pipeline.',
         features: [
             'Shipped to PC, Xbox, and PlayStation — 10,000+ active players',
@@ -340,28 +380,7 @@ const projectsData = [
         espn: 'https://www.espn.com/gaming/story/_/id/45954475/axis-football-2026-release-date'
     },
     {
-        section: 'games', code: 'GAME-02',
-        title: 'Bellatrix',
-        kicker: '3D editor + path tracer',
-        stats: 'Rust · WGSL path tracer · GI / IBL / PBR · custom wgpu UI',
-        short: 'A from-scratch WGSL path tracer with a custom voxel modeling system on top — no game engine underneath.',
-        image: 'images/bellatrix/room.webp',
-        tags: ['Rust', 'wgpu', 'Path tracing', 'WGSL', 'PBR'],
-        description: 'Bellatrix is a 3D scene editor built on a real-time renderer I wrote entirely from scratch — no game engine, and even the UI is a custom immediate-mode GUI rendered directly in wgpu with no framework underneath. Scenes are grid-snapped faces (full / half / quarter) lit by a hand-written path tracer: soft shadows, bounce global illumination, reflections, and temporal accumulation, with HDR image-based environment lighting and physically-based metallic/roughness materials. A denoiser, multi-pass bloom, and click-to-focus depth of field finish each frame. On the editing side there are layers with per-layer materials and visibility, full undo/redo, and a custom project format that stores 20,000+ faces at roughly 2 MB. It is where most of my low-level graphics work lives — a physically-based renderer and the editor around it, built end to end.',
-        features: [
-            'From-scratch WGSL path tracer on wgpu — no engine',
-            'Bounce global illumination, soft shadows, reflections, temporal accumulation',
-            'HDR image-based environment lighting (.hdr / .exr)',
-            'PBR metallic/roughness materials with procedural texture + normal maps',
-            'Denoiser, multi-pass bloom, click-to-focus depth of field',
-            'Custom immediate-mode GUI rendered entirely in wgpu — no UI framework',
-            'Grid-snapped face editing, layers, undo/redo; ~20,000 faces at ~2 MB'
-        ],
-        tech: 'Rust · wgpu · WGSL · path tracing · PBR',
-        github: 'https://github.com/camdenconrad/Bellatrix'
-    },
-    {
-        section: 'games', code: 'GAME-03',
+        section: 'engines', code: 'ENG-02',
         title: 'Ajaara',
         kicker: 'UE5 action-adventure',
         stats: 'Unreal Engine 5 · C++ · solo',
@@ -375,7 +394,7 @@ const projectsData = [
             'images/ajaara/Screenshot 2025-04-22 094737.png', 'images/ajaara/Screenshot 2025-04-22 094835.png',
             'images/ajaara/Screenshot 2025-04-22 095328.png'
         ],
-        tags: ['Unreal Engine 5', 'C++', 'AI systems', '3D / Audio'],
+        tags: ['Reactive AI', 'Solo-built', 'Unreal Engine 5', 'C++'],
         description: 'Ajaara is a personal Unreal Engine 5 project — a narrative action-adventure built solo from the ground up, with a focus on making combat and AI feel reactive and alive through emergent behavior. Beyond the programming I handle the 3D modeling, rigging, animation, and an original soundtrack, so the project also serves as a range piece across engineering and production.',
         features: [
             'Solo-developed in Unreal Engine 5',
@@ -387,15 +406,14 @@ const projectsData = [
         tech: 'Unreal Engine 5 · C++ · Blueprints · Maya · Ableton Live'
     },
 
-    // ===== Tools & ML =====
     {
-        section: 'tools', code: 'TOOL-01',
+        section: 'aerospace', code: 'SIM-03',
         title: 'Weather',
         kicker: 'Radar + nowcast desktop app',
         stats: 'Rust · NEXRAD L3 decode · ML nowcast · SQLite',
         short: 'Native weather + live-radar desktop app — decodes NEXRAD Level III radar from binary and runs its own ML nowcast.',
         image: 'images/weather/radar.webp',
-        tags: ['Rust', 'egui / wgpu', 'NEXRAD radar', 'ML nowcast', 'SQLite'],
+        tags: ['NEXRAD L3 decode', 'ML nowcast', 'egui / wgpu', 'SQLite'],
         description: 'Weather is a native egui/eframe desktop app that decodes NEXRAD Level III radar straight from its binary product format — fetch, decode, colorize, and render onto a slippy map — alongside forecasts from Open-Meteo and NWS, with everything persisted to SQLite. It also runs a short-range ML nowcast using a from-scratch sequence-prediction model (a Rust port of my TensorSequenceTree), extrapolating recent conditions a few steps forward with a confidence estimate. Binary format parsing, mapping, and ML in one self-contained Rust binary.',
         features: [
             'Decodes NEXRAD Level III radar from the raw binary product format',
@@ -408,32 +426,13 @@ const projectsData = [
         private: true
     },
     {
-        section: 'tools', code: 'TOOL-02',
-        title: 'WatchTower',
-        kicker: 'Sequence-memory engine',
-        stats: 'Rust · Postgres/pgvector · prediction + memory',
-        short: 'A from-scratch sequence-memory and prediction engine with a tiered Postgres/pgvector memory backbone.',
-        image: 'images/watchtower/watchtower.webp',
-        tags: ['Rust', 'Sequence model', 'pgvector', 'Embeddings', 'Memory'],
-        description: 'WatchTower is a parametric memory-and-prediction model ("TensorSequenceTree") that learns sequences of dense float vectors and predicts their continuations — blending n-gram statistics over quantized tensors, a transition graph with self-loop detection, physics-style delta/velocity regression, and prioritized experience replay, with 16-bit quantized storage to stay compact. Around it I built a tiered hot/cold memory store (in-memory plus Postgres/pgvector) with embeddings, ingestion, and retrieval, so other apps can use it as long-term vector memory. The same model, ported to Rust, is what powers the nowcast in my Weather app.',
-        features: [
-            'Learns sequences of tensors and predicts continuations — from scratch',
-            'n-gram stats, transition graph, delta/velocity regression, replay',
-            '16-bit quantized tensor storage for compact memory',
-            'Tiered hot/cold vector memory: in-memory + Postgres/pgvector',
-            'Embeddings, ingestion, and retrieval — a memory backbone for other apps'
-        ],
-        tech: 'Rust · Postgres / pgvector · embeddings · sequence modeling',
-        private: true
-    },
-    {
-        section: 'tools', code: 'TOOL-03',
+        section: 'engines', code: 'ENG-03',
         title: 'repliKate',
         kicker: 'Online-learning ML engine',
         stats: 'C# · ILGPU · adapts without pretraining',
         short: 'High-velocity continuous-learning ML engine — adapts online without pretraining at ~100 MB RAM.',
         image: 'images/replikate/online-learning.webp',
-        tags: ['C#', 'ILGPU', 'Online learning', 'GPU'],
+        tags: ['Online learning', 'No pretraining', 'ILGPU', 'C#'],
         description: 'repliKate is a high-velocity continuous-learning ML engine that adapts without pretraining, runs thread-safe online learning at roughly 100 MB of RAM, and uses GPU acceleration through ILGPU. I\'ve applied it to a chess AI (MCTS), a top-down-movement game AI (A* pathfinding and bullet-dodging), and ERA5 / NASA POWER weather prediction, and benchmarked it against LSTM and Transformer baselines.',
         features: [
             'Continuous online learning without pretraining',
@@ -447,13 +446,32 @@ const projectsData = [
         github: 'https://github.com/camdenconrad/repliKate'
     },
     {
-        section: 'tools', code: 'TOOL-04',
+        section: 'engines', code: 'ENG-04',
+        title: 'WatchTower',
+        kicker: 'Sequence-memory engine',
+        stats: 'Rust · Postgres/pgvector · prediction + memory',
+        short: 'A from-scratch sequence-memory and prediction engine with a tiered Postgres/pgvector memory backbone.',
+        image: 'images/watchtower/watchtower.webp',
+        tags: ['Sequence memory', 'Prediction engine', 'pgvector', 'Embeddings', 'Rust'],
+        description: 'WatchTower is a parametric memory-and-prediction model ("TensorSequenceTree") that learns sequences of dense float vectors and predicts their continuations — blending n-gram statistics over quantized tensors, a transition graph with self-loop detection, physics-style delta/velocity regression, and prioritized experience replay, with 16-bit quantized storage to stay compact. Around it I built a tiered hot/cold memory store (in-memory plus Postgres/pgvector) with embeddings, ingestion, and retrieval, so other apps can use it as long-term vector memory. The same model, ported to Rust, is what powers the nowcast in my Weather app.',
+        features: [
+            'Learns sequences of tensors and predicts continuations — from scratch',
+            'n-gram stats, transition graph, delta/velocity regression, replay',
+            '16-bit quantized tensor storage for compact memory',
+            'Tiered hot/cold vector memory: in-memory + Postgres/pgvector',
+            'Embeddings, ingestion, and retrieval — a memory backbone for other apps'
+        ],
+        tech: 'Rust · Postgres / pgvector · embeddings · sequence modeling',
+        private: true
+    },
+    {
+        section: 'engines', code: 'ENG-05',
         title: 'RustRent',
         kicker: 'Resilient market scraper',
         stats: 'Rust · async · anti-bot resilient',
         short: 'A resilient rental-market scraper and analysis pipeline in Rust — engineered to get through aggressive anti-bot and rate-limit defenses.',
         image: 'images/rustrent/rent-analysis.webp',
-        tags: ['Rust', 'Web scraping', 'Anti-bot', 'Async', 'Data'],
+        tags: ['Anti-bot scraping', 'Resilient parsing', 'Async', 'Data pipeline'],
         description: 'RustRent is a rental-market analysis tool in Rust — but the hard part was never the analysis, it was the scraping. Listing sites throw serious defenses at automated clients: fingerprinting, rate limits, bot detection, and markup that shifts under you. RustRent is built to get through all of it reliably — fingerprint-aware request pacing and rotation, careful session handling, and parsing resilient to sites changing — then turns the raw firehose into clean, queryable market data. A job-market-listings variant runs the same scraping engine against hiring data.',
         features: [
             'Resilient scraper that gets through aggressive anti-bot / rate-limit defenses',
@@ -466,13 +484,13 @@ const projectsData = [
         private: true
     },
     {
-        section: 'tools', code: 'TOOL-05',
+        section: 'engines', code: 'ENG-06',
         title: 'WhoAmI',
         kicker: 'High-dimensional personality model',
         stats: 'C# · Avalonia · sparse trait vectors',
         short: 'A high-dimensional personality model that keeps nuance and contradiction instead of bucketing into Big Five.',
         image: 'images/whoami/whoami.webp',
-        tags: ['C#', 'Avalonia', 'Vector modeling', 'Personality'],
+        tags: ['Personality model', 'High-dimensional vectors', 'Avalonia', 'C#'],
         description: 'WhoAmI is a personality-assessment engine that avoids Big-Five bucketing by representing people as sparse, high-dimensional trait vectors. It tracks co-activation — so "opposite" traits can coexist — keeps context-dependent profiles (Work, Social, Stress) instead of averaging them away, and treats contradictions as signal rather than noise. It outputs both a familiar MBTI-style type and a full nuanced vector profile, in a cross-platform Avalonia desktop app.',
         features: [
             'Sparse multi-hot trait vectors — no Big-Five bucketing',
@@ -483,24 +501,6 @@ const projectsData = [
         ],
         tech: 'C# · .NET · Avalonia · vector modeling',
         github: 'https://github.com/camdenconrad/WhoAmI'
-    },
-    {
-        section: 'tools', code: 'TOOL-06',
-        title: 'Nocturne',
-        kicker: 'Native music client',
-        stats: 'Rust · wgpu · RuneOS app',
-        short: 'Native Rust music client for RuneOS — part of the OS app suite.',
-        image: 'images/nocturne/player.webp',
-        gallery: ['images/nocturne/player.webp', 'images/nocturne/player-2.webp'],
-        tags: ['Rust', 'Wayland', 'Audio', 'Native UI'],
-        description: 'Nocturne is a native Rust music client built for RuneOS — a clean, keyboard-driven player that fits the OS\'s design language and rendering stack. A small piece of the daily-driven native app suite.',
-        features: [
-            'Native Rust client for RuneOS',
-            'Keyboard-driven, fits the OS design language',
-            'Integrated with the RuneOS rendering stack'
-        ],
-        tech: 'Rust · native UI · audio',
-        github: 'https://github.com/camdenconrad/nocturne'
     }
 ];
 
@@ -558,7 +558,6 @@ function createCard(project) {
             ${stats}
             <div class="card-tags">${project.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
             <div class="card-foot">
-                <span>${esc(project.tech.split('·')[0].trim())}</span>
                 <span class="card-foot-right">${repoLink}<span class="open">${linkState}</span></span>
             </div>
         </div>`;

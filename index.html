@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Camden Conrad — Systems & Flight Software Engineer. Trajectory optimization, GNC, deterministic simulation, a custom Linux stack, and shipped software. Rust · C/C++ · Python.">
+    <meta name="description" content="Camden Conrad — systems software and developer-tools engineer. IDEs, a custom operating system, orchestration platforms, renderers, and simulators — deterministic, low-level, mostly Rust. Flight software is one of the domains. Rust · C/C++ · Python.">
     <meta name="author" content="Camden Conrad">
     <meta name="theme-color" content="#05070a">
-    <title>Camden Conrad — Systems & Flight Software Engineer</title>
+    <title>Camden Conrad — Systems Software & Developer Tools</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,10 +26,10 @@
             <span class="logo-sub">SYS//ENG</span>
         </a>
         <div class="nav-links" id="navLinks">
-            <a href="#aerospace" class="nav-link" data-section="aerospace">Flight&nbsp;SW</a>
+            <a href="#devtools" class="nav-link" data-section="devtools">Dev&nbsp;Tools</a>
             <a href="#systems" class="nav-link" data-section="systems">Systems</a>
-            <a href="#games" class="nav-link" data-section="games">Games</a>
-            <a href="#tools" class="nav-link" data-section="tools">Tools&nbsp;&&nbsp;ML</a>
+            <a href="#aerospace" class="nav-link" data-section="aerospace">Flight&nbsp;SW</a>
+            <a href="#engines" class="nav-link" data-section="engines">Engines&nbsp;&&nbsp;ML</a>
             <a href="#about" class="nav-link" data-section="about">About</a>
             <a href="#contact" class="nav-link" data-section="contact">Contact</a>
         </div>
@@ -67,23 +67,24 @@
             <span class="mono">TROUTMAN,&nbsp;NC</span>
         </div>
         <h1 class="hero-title">
-            I write the parts<br>most people <span class="accent">import</span>.
+            I build the infrastructure<br>other engineers <span class="accent">build on</span>.
         </h1>
         <p class="hero-lede">
-            I build deterministic, low-level systems in Rust, C, and C++ — trajectory
-            optimization and GNC, simulation harnesses that own the clock, and a
-            custom Linux stack. Software written as if a bit flipped somewhere.
+            I build developer tools, systems software, and the infrastructure they
+            run on — IDEs, an operating system, orchestration platforms, simulators,
+            renderers, schedulers. Deterministic, low-level, mostly in Rust. Software
+            written as if a bit flipped somewhere.
         </p>
         <div class="hero-actions">
-            <a href="#aerospace" class="btn btn-primary">
-                <span>View flight-software work</span>
+            <a href="#devtools" class="btn btn-primary">
+                <span>View the work</span>
                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a href="https://github.com/camdenconrad" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
             <a href="Camden_Conrad_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Résumé (PDF)</a>
         </div>
         <dl class="hero-readout" aria-label="Summary">
-            <div><dt class="mono">FOCUS</dt><dd>Mission design · GNC</dd></div>
+            <div><dt class="mono">FOCUS</dt><dd>Developer tools · systems software</dd></div>
             <div><dt class="mono">STACK</dt><dd>Rust · C/C++ · Python</dd></div>
             <div><dt class="mono">SHIPPED</dt><dd>Axis Football 2026</dd></div>
             <div><dt class="mono">OS</dt><dd>RuneOS — daily driven</dd></div>
@@ -93,44 +94,44 @@
 </header>
 
 <main>
-    <!-- Flight Software & Aerospace -->
-    <section id="aerospace" class="section">
+    <!-- Developer Tools & Platforms -->
+    <section id="devtools" class="section">
         <div class="section-head">
-            <span class="section-index mono">01 / FLIGHT SOFTWARE &amp; AEROSPACE</span>
-            <h2 class="section-title">Mission design, GNC &amp; deterministic flight software</h2>
-            <p class="section-lede">Trajectory optimization and the tooling that makes flight software testable. Built from first principles rather than extending existing astrodynamics frameworks.</p>
+            <span class="section-index mono">01 / DEVELOPER TOOLS &amp; PLATFORMS</span>
+            <h2 class="section-title">Tools engineers actually use</h2>
+            <p class="section-lede">IDEs, orchestration, editors, and CLIs I built to make building, reviewing, and running software faster.</p>
         </div>
-        <div class="projects-grid" data-grid="aerospace"></div>
+        <div class="projects-grid" data-grid="devtools"></div>
     </section>
 
     <!-- Systems & OS -->
     <section id="systems" class="section">
         <div class="section-head">
             <span class="section-index mono">02 / SYSTEMS &amp; OS</span>
-            <h2 class="section-title">A custom Linux stack, and the tools around it</h2>
-            <p class="section-lede">A daily-driven Linux stack built across the systems layer: kernel, compositor, scheduler, and native Rust applications — parts written under deliberately strict coding rules.</p>
+            <h2 class="section-title">A custom operating system, and the software under it</h2>
+            <p class="section-lede">A daily-driven Linux stack and the low-level services it runs on — compositor, scheduler, audio server, network control plane.</p>
         </div>
         <div class="projects-grid" data-grid="systems"></div>
     </section>
 
-    <!-- Shipped Games -->
-    <section id="games" class="section">
+    <!-- Simulation & Flight Software -->
+    <section id="aerospace" class="section">
         <div class="section-head">
-            <span class="section-index mono">03 / SHIPPED GAMES</span>
-            <h2 class="section-title">Commercial titles &amp; real-time engines</h2>
-            <p class="section-lede">Shipped commercial games and from-scratch real-time rendering — zero-GC systems, a hand-written WGSL path tracer, and engine work end to end.</p>
+            <span class="section-index mono">03 / SIMULATION &amp; FLIGHT SOFTWARE</span>
+            <h2 class="section-title">Astrodynamics &amp; deterministic flight-software tooling</h2>
+            <p class="section-lede">The direction I'm aiming — simulators and mission-design tools for flight software, built from first principles rather than extending existing astrodynamics frameworks.</p>
         </div>
-        <div class="projects-grid" data-grid="games"></div>
+        <div class="projects-grid" data-grid="aerospace"></div>
     </section>
 
-    <!-- Tools & ML -->
-    <section id="tools" class="section">
+    <!-- Engines, ML & Data -->
+    <section id="engines" class="section">
         <div class="section-head">
-            <span class="section-index mono">04 / TOOLS &amp; ML</span>
-            <h2 class="section-title">Renderers, learning engines &amp; analysis tools</h2>
-            <p class="section-lede">From-scratch GPU tooling, online-learning ML, and domain analysis utilities.</p>
+            <span class="section-index mono">04 / ENGINES, ML &amp; DATA</span>
+            <h2 class="section-title">Real-time engines, learning systems &amp; data tools</h2>
+            <p class="section-lede">Shipped game-engine work, from-scratch rendering, online-learning ML, and resilient data pipelines.</p>
         </div>
-        <div class="projects-grid" data-grid="tools"></div>
+        <div class="projects-grid" data-grid="engines"></div>
     </section>
 
     <!-- How I Build -->
@@ -171,7 +172,7 @@
         </div>
         <div class="about-grid">
             <div class="about-text">
-                <p>I'm a software engineer and systems programmer in Troutman, North Carolina, working toward <strong>flight software — specifically mission design and GNC.</strong> The goal is to work on things that actually solve hard problems: trajectory optimization, orbital mechanics, guidance, navigation, and control.</p>
+                <p>I'm a software engineer and systems programmer in Troutman, North Carolina. I build developer tools and systems software — the infrastructure other engineers rely on — and I'm aiming that at flight software: simulators, mission-design tooling, and the deterministic systems GNC depends on.</p>
                 <p>Largely self-taught. I studied computer science at UNC Charlotte (2021–2026, AI / Robotics / Game Dev concentration) — completed the computer-science core curriculum and a senior project before leaving to pursue industry work full-time. My work centers on <strong>determinism, zero-GC and manual memory management, and data-oriented design</strong>: software written as if it assumes a bit flipped somewhere.</p>
                 <p>Alongside engineering I have a strong music-production background and was previously signed to a label — useful range for the audio and tooling problems that keep appearing in my projects.</p>
             </div>
@@ -222,7 +223,7 @@
 <footer class="footer">
     <div class="footer-inner">
         <span class="mono dim">&copy; 2026 CAMDEN CONRAD</span>
-        <span class="mono dim">Systems &amp; flight-software engineering — Rust · C/C++ · Python</span>
+        <span class="mono dim">Systems software, developer tools, and the infrastructure they run on.</span>
     </div>
 </footer>
 
