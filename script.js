@@ -373,14 +373,14 @@ const projectsData = [
         short: 'Shipped to PC/Xbox/PlayStation, 10,000+ active players — zero-GC replay system and a 7.8× crowd-pipeline speedup.',
         image: 'Axis_football_26-1090110268.png',
         tags: ['Shipped title', 'Zero-GC replay', '7.8× speedup', 'Unity', 'C#'],
-        description: 'Axis Football 2026 is a commercial title shipped to PC, Xbox, and PlayStation with 10,000+ active players, where I am credited as Contract Systems Programmer. I rebuilt the replay system to be zero-GC — 25 MB captures 15 seconds of full 22-player data with variable-speed playback, and the added instrumentation eliminated the timing-related crashes we were seeing in QA. I re-architected the Crowd Editor pipeline for a 684% (7.8×) speedup, turning a days-long process into minutes and enabling 10× more crowd volume, and automated a live-statistics narrative commentary pipeline.',
+        description: 'Axis Football 2026 is a commercial title shipped to PC, Xbox, and PlayStation with 10,000+ active players, where I am credited as Contract Systems Programmer. I rebuilt the replay system to be zero-GC — 25 MB captures 15 seconds of full 22-player data with variable-speed playback, and the added instrumentation eliminated the timing-related crashes we were seeing in QA. I re-architected the Crowd Editor pipeline for a 684% (7.8×) speedup, turning an hour-long task into minutes and enabling 10× more crowd volume, and automated a live-statistics narrative commentary pipeline.',
         features: [
             'Shipped to PC, Xbox, and PlayStation — 10,000+ active players',
             'Rebuilt zero-GC replay: 25 MB for 15s of full 22-player data',
             'Variable-speed playback with timing instrumentation',
             'Eliminated the timing-related crashes seen in QA',
             'Re-architected Crowd Editor pipeline — 684% (7.8×) speedup',
-            'Days → minutes, enabling 10× more crowd volume',
+            'An hour → minutes, enabling 10× more crowd volume',
             'Automated live-statistics narrative commentary pipeline'
         ],
         tech: 'Unity · C# · zero-GC systems · data-oriented optimization',
