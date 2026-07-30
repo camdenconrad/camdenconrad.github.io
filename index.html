@@ -15,13 +15,12 @@
 <body>
 <!-- Rune window titlebar -->
 <div class="rune-titlebar">
+    <span class="win-title mono"><span class="accent-dot">●</span>&nbsp; camden-conrad — portfolio</span>
     <div class="win-dots">
-        <span class="win-dot dot-close" aria-hidden="true"></span>
         <span class="win-dot dot-min" aria-hidden="true"></span>
         <span class="win-dot dot-max" aria-hidden="true"></span>
+        <span class="win-dot dot-close" aria-hidden="true"></span>
     </div>
-    <span class="win-title mono"><span class="accent-dot">●</span>&nbsp; camden-conrad — portfolio</span>
-    <span class="win-hint mono">RUNE</span>
 </div>
 
 <!-- Coordinate grid backdrop -->
@@ -55,19 +54,45 @@
     <div class="hero-grid" aria-hidden="true">
         <svg class="orbit-diagram" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
             <defs>
-                <radialGradient id="bodyGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.55"/>
+                <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.45"/>
                     <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
                 </radialGradient>
             </defs>
-            <g class="orbit-ticks"></g>
-            <circle class="orbit-ring" cx="300" cy="300" r="250" fill="none"/>
-            <circle class="orbit-ring" cx="300" cy="300" r="180" fill="none"/>
-            <ellipse class="orbit-transfer" cx="300" cy="300" rx="248" ry="150" fill="none"/>
-            <circle cx="300" cy="300" r="70" fill="url(#bodyGlow)"/>
-            <circle class="orbit-body" cx="300" cy="300" r="9"/>
-            <circle class="orbit-sat sat-a" r="4"/>
-            <circle class="orbit-sat sat-b" r="3.5"/>
+
+            <!-- faint orbital rings -->
+            <circle class="net-ring" cx="300" cy="300" r="245"/>
+            <circle class="net-ring" cx="300" cy="300" r="165"/>
+
+            <!-- spokes: hub -> workers (data flow) -->
+            <line class="net-spoke flow" x1="300" y1="300" x2="530" y2="384"/>
+            <line class="net-spoke"      x1="300" y1="300" x2="329" y2="462"/>
+            <line class="net-spoke flow" x1="300" y1="300" x2="88"  y2="422"/>
+            <line class="net-spoke"      x1="300" y1="300" x2="150" y2="230"/>
+            <line class="net-spoke flow" x1="300" y1="300" x2="291" y2="55"/>
+            <line class="net-spoke"      x1="300" y1="300" x2="443" y2="217"/>
+
+            <!-- worker nodes -->
+            <rect class="net-node blink" x="523.5" y="377.5" width="13" height="13" rx="3" style="animation-delay:0s"/>
+            <rect class="net-node"       x="322.5" y="455.5" width="13" height="13" rx="3"/>
+            <rect class="net-node blink" x="81.5"  y="415.5" width="13" height="13" rx="3" style="animation-delay:1.2s"/>
+            <rect class="net-node"       x="143.5" y="223.5" width="13" height="13" rx="3"/>
+            <rect class="net-node blink" x="284.5" y="48.5"  width="13" height="13" rx="3" style="animation-delay:2.4s"/>
+            <rect class="net-node"       x="436.5" y="210.5" width="13" height="13" rx="3"/>
+
+            <!-- sparkles (Rune motif) -->
+            <path class="sparkle" d="M470 112 L472.2 117.8 L478 120 L472.2 122.2 L470 128 L467.8 122.2 L462 120 L467.8 117.8 Z"/>
+            <path class="sparkle" style="opacity:.5" d="M175 470 L176.7 474.3 L181 476 L176.7 477.7 L175 482 L173.3 477.7 L169 476 L173.3 474.3 Z"/>
+
+            <!-- central hub: Rune icon shell + orange ring -->
+            <circle cx="300" cy="300" r="66" fill="url(#hubGlow)"/>
+            <rect class="hub-shell" x="276" y="276" width="48" height="48" rx="11"/>
+            <circle class="hub-ring" cx="300" cy="300" r="14"/>
+            <circle class="hub-core" cx="300" cy="300" r="4"/>
+
+            <!-- live parallel agents orbiting -->
+            <rect class="agent agent-a" x="294" y="49" width="12" height="12" rx="3"/>
+            <rect class="agent agent-b" x="295" y="130" width="10" height="10" rx="2.5"/>
         </svg>
     </div>
     <div class="hero-content">
@@ -247,15 +272,12 @@
     <div class="modal-overlay" data-close></div>
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-titlebar">
+            <span class="modal-win-title mono" id="modalWinTitle"></span>
             <div class="win-dots">
-                <button class="win-dot dot-close" data-close aria-label="Close"></button>
                 <span class="win-dot dot-min" aria-hidden="true"></span>
                 <span class="win-dot dot-max" aria-hidden="true"></span>
+                <button class="win-dot dot-close" data-close aria-label="Close"></button>
             </div>
-            <span class="modal-win-title mono" id="modalWinTitle"></span>
-            <button class="modal-close" data-close aria-label="Close">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
         </div>
         <div class="modal-body" id="modalBody"></div>
     </div>
